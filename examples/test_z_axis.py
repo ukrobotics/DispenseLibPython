@@ -1,31 +1,18 @@
-import os
 import sys
+import os
 import time
+import traceback
 
-# --- Setup .NET imports ---
-# Ensure D2Controller.py and the 'dlls' folder are accessible.
-# This assumes 'test_z_axis.py' is in the same directory as 'D2Controller.py'
-# and the 'dlls' folder is in the parent directory.
 try:
-    # Add the DLL directory to the path
-    dll_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "dlls"))
-    sys.path.append(dll_dir)
-    
-    # Import the controller and required .NET types
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    dispense_dir = os.path.join(current_dir, "..", "dispenselib")
+    sys.path.append(dispense_dir)
     from D2Controller import D2Controller
-    import clr
-    clr.AddReference("UKRobotics.Common")
-    from UKRobotics.Common.Maths import Distance, DistanceUnitType
-    from System import TimeSpan
-except ImportError as e:
-    print(f"Error importing necessary modules: {e}")
-    print("Please ensure D2Controller.py is in the same directory and the 'dlls' folder is correctly located.")
+    
+except ImportError:
+    print("Error: D2Controller.py not found.")
+    print("Please ensure your directory structure is correct and your virtual environment is active.")
     sys.exit(1)
-except Exception as e:
-    print(f"Failed to load .NET assemblies: {e}")
-    print("Please ensure the DLLs are in the correct directory and pythonnet is installed.")
-    sys.exit(1)
-
 
 def run_z_axis_test(com_port: str):
     """
@@ -84,10 +71,6 @@ def run_z_axis_test(com_port: str):
 
 
 if __name__ == "__main__":
-    # !!! IMPORTANT !!!
-    # REPLACE 'COM3' with the actual COM port for your D2 dispenser.
-    # On Windows, it will be 'COMx' (e.g., 'COM3').
-    # On Linux, it might be '/dev/ttyACMx' or '/dev/ttyUSBx'.
     PORT = "COM4"
     
     run_z_axis_test(PORT)
