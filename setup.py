@@ -9,14 +9,13 @@ with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
 setuptools.setup(
-    name="dispenselib",
+    name="DispenseLibDotPy",
     version="0.1.0",
-    author="Your Name / Company Name",
-    author_email="your_email@example.com",
+    author="UK Robotics",
     description="A Python wrapper for the UK Robotics D2 dispenser.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/your_username/your_repo", # Replace with your project's URL
+    url="https://github.com/UKRobotics/DispenseLibDotPy", # Replace with your project's URL
     packages=setuptools.find_packages(),
     include_package_data=True, # This tells setuptools to look for MANIFEST.in
     classifiers=[
@@ -26,6 +25,6 @@ setuptools.setup(
         "Development Status :: 4 - Beta",
         "Topic :: System :: Hardware :: Hardware Drivers",
     ],
-    python_requires='>=3.7',
+    python_requires='>=3.12',
     install_requires=requirements,
 )

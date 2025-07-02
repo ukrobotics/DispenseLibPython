@@ -1,5 +1,6 @@
 import time
 import traceback
+import serial.tools.list_ports as serial_ports
 
 # 1. Import the main controller. This initializes the .NET runtime.
 from dispenselib.D2Controller import D2Controller
@@ -27,15 +28,13 @@ def run_z_axis_test(com_port: str):
             height_50 = Distance.Parse("50mm")
             print(f"\nMoving Z-axis to {height_50}...")
             controller.move_z_to_dispense_height(height_50)
-            print("Pausing for 3 seconds...")
-            time.sleep(3)
+            time.sleep(1)
 
             # --- Test 2: Move to 20mm ---
             height_20 = Distance.Parse("20mm")
             print(f"\nMoving Z-axis to {height_20}...")
             controller.move_z_to_dispense_height(height_20)
-            print("Pausing for 3 seconds...")
-            time.sleep(3)
+            time.sleep(1)
             
             # --- Return to a safe position ---
             # For clarity, defining the 10mm height separately
@@ -57,8 +56,20 @@ def run_z_axis_test(com_port: str):
 
 
 if __name__ == "__main__":
-    # !!! IMPORTANT !!!
-    # REPLACE 'COM4' with the actual COM port for your D2 dispenser.
-    PORT = "COM4"
+    # print all available COM ports
+    print("Available COM ports:")
+    ports = serial_ports.comports()
+    if ports:
+        for port in ports:
+            print(port.device)
+    else:
+        print("No COM ports found.")
+
+    print("\nPlease ensure the D2 dispenser is connected to your computer.")
+    PORT = input("Enter the COM port for the D2 dispenser (e.g., 'COM4'): ").strip()
+    if not PORT:
+        PORT = ports[0].device if ports else None
+    if not PORT:
+        print("No COM port provided. Exiting.")
     
     run_z_axis_test(PORT)

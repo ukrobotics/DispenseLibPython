@@ -1,6 +1,5 @@
 import traceback
-# There is no longer any need to manipulate sys.path.
-# After running 'pip install .', Python knows where to find 'dispenselib'.
+import serial.tools.list_ports as serial_ports
 
 from dispenselib.D2Controller import D2Controller
 
@@ -30,7 +29,7 @@ def run_test_dispense(com_port: str):
             print(f"Loading protocol: {protocol_id} and plate type: {plate_type_id}...")
 
             # This single call now handles the entire dispense process.
-            controller.run_dispense(protocol_id, plate_type_id)
+            controller.run_dispense_from_id(protocol_id, plate_type_id)
             
             print("\nDispense test finished successfully.")
 
@@ -43,10 +42,20 @@ def run_test_dispense(com_port: str):
 
 
 if __name__ == "__main__":
-    # !!! IMPORTANT !!!
-    # REPLACE 'COM4' with the actual COM port for your D2 dispenser.
-    PORT = input("Enter the COM port (e.g., 'COM4'): ")
+    # print all available COM ports
+    print("Available COM ports:")
+    ports = serial_ports.comports()
+    if ports:
+        for port in ports:
+            print(port.device)
+    else:
+        print("No COM ports found.")
+
+    print("\nPlease ensure the D2 dispenser is connected to your computer.")
+    PORT = input("Enter the COM port for the D2 dispenser (e.g., 'COM4'): ").strip()
     if not PORT:
-        PORT = "COM4"  # Default value if no input is provided.
+        PORT = ports[0].device if ports else None
+    if not PORT:
+        print("No COM port provided. Exiting.")
     
     run_test_dispense(PORT)
