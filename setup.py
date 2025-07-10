@@ -25,6 +25,6 @@ setuptools.setup(
         "Development Status :: 4 - Beta",
         "Topic :: System :: Hardware :: Hardware Drivers",
     ],
-    python_requires='>=3.12',
+    python_requires='>=3.11',
     install_requires=requirements,
 )
