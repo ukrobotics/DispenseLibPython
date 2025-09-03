@@ -8,13 +8,17 @@ from typing import List, Dict, Any, Optional
 import json
 import requests
 import math
+import logging
 
 # --- Local Imports ---
 from dispenselib.protocol import protocol_handler
-from dispenselib.utils import dlls  # Import the centralized DLL loader
+from dispenselib.utils import dlls
 from dispenselib.compiler import compile_dispense_from_python
 from System import Double
 from UKRobotics.D2.DispenseLib.Calibration import ActiveCalibrationData
+
+logging.basicConfig(level=logging.WARNING, format='%(asctime)s - %(levelname)s - %(message)s')
+log = logging.getLogger(__name__)
 
 class DispenseState(Enum):
     """Represents the state of a dispense operation."""
@@ -28,7 +32,7 @@ def get_plate_type_data_from_python(guid: str) -> Optional[Any]:
     bypassing all problematic C# I/O and deserialization.
     """
     url = f"https://labware.ukrobotics.app/{guid}.json"
-    print(f"Fetching plate data from Python: {url}")
+    log.info(f"Fetching plate data from Python: {url}")
     try:
         response = requests.get(url, timeout=10)
         response.raise_for_status()
@@ -51,7 +55,7 @@ def get_plate_type_data_from_python(guid: str) -> Optional[Any]:
         return plate_data
 
     except (requests.exceptions.RequestException, json.JSONDecodeError) as e:
-        print(f"Error processing plate data in Python: {e}")
+        log.error(f"Error processing plate data in Python: {e}")
         raise RuntimeError(f"Could not process plate data for GUID {guid}") from e
 
 
@@ -80,13 +84,13 @@ class D2Controller:
         Custom handler for Ctrl+C. Actively aborts any running command,
         then ensures the controller connection is disposed before exiting.
         """
-        print("\nCtrl+C detected. Sending ABORT command...")
+        log.warning("\nCtrl+C detected. Sending ABORT command...")
         try:
             self.abort()
         except Exception as e:
-            print(f"Could not send ABORT command. Continuing with shutdown. Error: {e}")
-        
-        print("Shutting down gracefully...")
+            log.error(f"Could not send ABORT command. Continuing with shutdown. Error: {e}")
+
+        log.info("Shutting down gracefully...")
         self.dispose()
         sys.exit(0)
 
@@ -94,13 +98,13 @@ class D2Controller:
         """
         Prepares a dispense, starts it to get the time estimate, then immediately aborts.
         """
-        print("Generating protocol from Python list for estimation...")
+        log.info("Generating protocol from Python list for estimation...")
         protocol = protocol_handler.from_list(well_data)
         
         # This can be run in the main thread as it's not a long-running blocking call
         estimated_duration_ms = self._execute_for_estimation(protocol, plate_type_guid, calibration_data)
-        
-        print("Estimation complete.")
+
+        log.info("Estimation complete.")
         return estimated_duration_ms
 
     def _execute_for_estimation(self, protocol: Any, plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None) -> Optional[float]:
@@ -138,7 +142,7 @@ class D2Controller:
                 estimated_duration_ms = float(response.GetParameter(0)) / 1000
                 self.abort()  # Immediately abort after getting the estimate
             else:
-                print("Warning: Controller response contained no parameters for estimation.")
+                log.warning("Controller response contained no parameters for estimation.")
 
 
             """ self.abort()
@@ -146,16 +150,16 @@ class D2Controller:
 
         finally:
             # Cleanup
-            print("Cleaning up after estimation...")
+            log.info("Cleaning up after estimation...")
             try:
                 self._controller.DisableAllMotors()
             except Exception as e:
-                print(f"Error disabling motors: {e}")
+                log.error(f"Error disabling motors: {e}")
             try:
                 self.set_clamp(False)
             except Exception as e:
-                print(f"Error releasing clamp: {e}")
-        
+                log.error(f"Error releasing clamp: {e}")
+
         return estimated_duration_ms
 
     def _execute_local_dispense(self, protocol: Any, plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None):
@@ -175,17 +179,17 @@ class D2Controller:
             # 2. Use provided calibration data or fetch from the web
             processed_calibration_data = None
             if calibration_data:
-                print("Using provided local calibration data.")
+                log.info("Using provided local calibration data.")
                 processed_calibration_data = calibration_data
             else:
-                print("Fetching and processing active calibration data from the web...")
+                log.info("Fetching and processing active calibration data from the web...")
                 device_serial_id = self.read_serial_id()
                 processed_calibration_data = dlls.D2DataAccess.GetActiveCalibrationData(device_serial_id)
                 dlls.ActiveCalibrationData.UpdateVolumePerShots(processed_calibration_data)
-                print("Calibration data processed successfully.")
+                log.info("Calibration data processed successfully.")
 
             # 3. Compile dispense commands
-            print("Compiling dispense commands...")
+            log.info("Compiling dispense commands...")
             dispense_commands = compile_dispense_from_python(
                 self._controller.ControllerNumberArms,
                 processed_calibration_data, 
@@ -200,14 +204,14 @@ class D2Controller:
             self.set_clamp(True)
             
             # 5. Send commands
-            print(f"Sending {len(dispense_commands)} commands to the dispenser...")
+            log.info(f"Sending {len(dispense_commands)} commands to the dispenser...")
             for command in dispense_commands:
                 success = True
                 error_message = ""
                 self._controller.ControlConnection.SendMessageRaw(command, True, success, error_message)
 
             # 6. Start dispense and measure time
-            print("Starting dispense...")
+            log.info("Starting dispense...")
             response = self._controller.ControlConnection.SendMessage("DISPENSE", self._controller.ControllerNumberArms, 0)
             response.GetParameter(0, estimated_duration_ms)
 
@@ -217,16 +221,16 @@ class D2Controller:
 
         finally:
             # 7. Cleanup
-            print("Dispense finished. Cleaning up...")
+            log.info("Dispense finished. Cleaning up...")
             try:
                 self._controller.DisableAllMotors()
             except Exception as e:
-                print(f"Error disabling motors: {e}")
+                log.error(f"Error disabling motors: {e}")
             try:
                 self.set_clamp(False)
             except Exception as e:
-                print(f"Error releasing clamp: {e}")
-        
+                log.error(f"Error releasing clamp: {e}")
+
         return estimated_duration_ms, actual_duration_s
 
 
@@ -262,13 +266,13 @@ class D2Controller:
         Establishes a connection with the D2 dispenser.
         """
         self._controller.OpenComms(com_port, baud)
-        print(f"Successfully connected to D2 on {com_port}.")
+        log.info(f"Successfully connected to D2 on {com_port}.")
 
     def dispose(self):
         """Closes the connection to the D2 dispenser."""
         if self._controller:
             self._controller.Dispose()
-            print("Connection to D2 closed.")
+            log.info("Connection to D2 closed.")
 
     def __enter__(self):
         return self
@@ -282,21 +286,21 @@ class D2Controller:
         """
         Runs a dispense protocol fetched from the web service using its ID.
         """
-        print(f"Running dispense for protocol ID: {protocol_id}")
+        log.info(f"Running dispense for protocol ID: {protocol_id}")
         # This original method doesn't return anything.
         self._run_in_thread(self._controller.RunDispense, protocol_id, plate_type_guid)
-        print("Dispense completed.")
+        log.info("Dispense completed.")
 
     def run_dispense_from_csv(self, csv_file_path: str, plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None):
         """
         Runs a dispense protocol defined in a local CSV file.
         Accepts an optional pre-loaded calibration object.
         """
-        print(f"Importing protocol from {csv_file_path}...")
+        log.info(f"Importing protocol from {csv_file_path}...")
         protocol = protocol_handler.import_from_csv(csv_file_path)
-        print(f"Running dispense from imported CSV protocol: {protocol.Name}")
+        log.info(f"Running dispense from imported CSV protocol: {protocol.Name}")
         result = self._run_in_thread(self._execute_local_dispense, protocol, plate_type_guid, calibration_data=calibration_data)
-        print("Dispense completed.")
+        log.info("Dispense completed.")
         return result
 
     def run_dispense_from_list(self, well_data: List[Dict[str, Any]], plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None):
@@ -304,11 +308,11 @@ class D2Controller:
         Runs a dispense protocol defined dynamically from a Python list.
         Accepts an optional pre-loaded calibration object.
         """
-        print("Generating protocol from Python list...")
+        log.info("Generating protocol from Python list...")
         protocol = protocol_handler.from_list(well_data)
-        print(f"Running dispense from dynamic protocol: {protocol.Name}")
+        log.info(f"Running dispense from dynamic protocol: {protocol.Name}")
         result = self._run_in_thread(self._execute_local_dispense, protocol, plate_type_guid, calibration_data=calibration_data)
-        print("Dispense completed.")
+        log.info("Dispense completed.")
         return result
 
     # --- Protocol Management ---
@@ -317,9 +321,9 @@ class D2Controller:
         """
         Fetches a protocol by its ID and exports it to a local CSV file.
         """
-        print(f"Exporting protocol {protocol_id} to {file_path}...")
+        log.info(f"Exporting protocol {protocol_id} to {file_path}...")
         protocol_handler.export_to_csv(protocol_id, file_path)
-        print("Export complete.")
+        log.info("Export complete.")
 
     def get_protocol_as_list(self, protocol_id: str) -> List[Dict[str, Any]]:
         """
@@ -334,48 +338,48 @@ class D2Controller:
         """
         Flushes a specified valve with a given volume.
         """
-        print(f"Flushing valve {valve_number} with {volume_ul} μL...")
+        log.info(f"Flushing valve {valve_number} with {volume_ul} μL...")
         flush_volume = dlls.Volume(volume_ul, dlls.VolumeUnitType.ul)
         self._controller.Flush(valve_number, flush_volume)
-        print("Flush complete.")
+        log.info("Flush complete.")
 
     def park_arms(self):
         """Parks the dispenser arms."""
-        print("Parking arms...")
+        log.info("Parking arms...")
         self._controller.ParkArms()
-        print("Arms parked.")
+        log.info("Arms parked.")
 
     def unpark_arms(self):
         """Unparks the dispenser arms."""
-        print("Unparking arms...")
+        log.info("Unparking arms...")
         self._controller.UnparkArms()
-        print("Arms unparked.")
+        log.info("Arms unparked.")
 
     def move_z_to_height(self, height_mm: float):
         """
         Moves the Z-axis to a specified height.
         """
-        print(f"Moving Z-axis to {height_mm} mm...")
+        log.info(f"Moving Z-axis to {height_mm} mm...")
         target_distance = dlls.Distance(height_mm, dlls.DistanceUnitType.mm)
         self._controller.MoveZToDispenseHeight(target_distance)
-        print("Z-axis move complete.")
+        log.info("Z-axis move complete.")
 
     def move_z_to_height_from_python(self, height_mm: float):
         """
         A pure Python re-implementation of the C# MoveZToDispenseHeight method.
         This avoids the final TypeLoadException by performing calculations in Python.
         """
-        print(f"Moving Z-axis to {height_mm} mm (Python implementation)...")
+        log.info(f"Moving Z-axis to {height_mm} mm (Python implementation)...")
         # Use the underlying .NET objects for hardware interaction
         z_axis = self._controller.ZAxis
         
         # 1. Check if homed and home if necessary
         if not z_axis.ReadBoolean(dlls.ControllerParam.IsHomed):
-            print("Z-axis not homed. Homing now...")
+            log.info("Z-axis not homed. Homing now...")
             z_axis.Home()
             time.sleep(1) # Small wait to ensure homing has started
             z_axis.WaitForIsHomed(dlls.TimeSpan.FromSeconds(40))
-            print("Z-axis homing complete.")
+            log.info("Z-axis homing complete.")
 
         # 2. Calculate height in microns using Python's math
         target_distance = dlls.Distance(height_mm, dlls.DistanceUnitType.mm)
@@ -391,7 +395,7 @@ class D2Controller:
 
         # 4. Wait for the move to settle
         z_axis.WaitForPositionSettledAndInRange(dlls.TimeSpan.FromSeconds(30))
-        print("Z-axis move complete.")
+        log.info("Z-axis move complete.")
 
     def read_serial_id(self) -> str:
         """
@@ -405,17 +409,17 @@ class D2Controller:
         Sets the state of the plate clamp.
         """
         state = "Engaging" if clamped else "Releasing"
-        print(f"{state} clamp...")
+        log.info(f"{state} clamp...")
         self._controller.SetClamp(clamped)
-        print("Clamp command sent.")
+        log.info("Clamp command sent.")
 
     def clear_motor_error_flags(self):
         """
         Clears any error flags on the arm and Z-axis motors.
         """
-        print("Clearing motor error flags...")
+        log.info("Clearing motor error flags...")
         self._controller.ClearMotorErrorFlags()
-        print("Motor error flags cleared.")
+        log.info("Motor error flags cleared.")
 
     def get_dispense_state(self) -> DispenseState:
         """
@@ -433,12 +437,12 @@ class D2Controller:
         which is more reliable than a Python-based polling loop.
         """
         try:
-            print(f"Waiting for dispense to complete (C# timeout activated)...")
+            log.info(f"Waiting for dispense to complete (C# timeout activated)...")
             # Create a .NET TimeSpan object from the provided seconds
             timeout_span = dlls.TimeSpan.FromSeconds(timeout_seconds)
             # Call the underlying, robust C# method directly
             self._controller.WaitForDispenseComplete(timeout_span)
-            print("Dispense has completed.")
+            log.info("Dispense has completed.")
         except Exception as e:
             # Catch exceptions from the C# side (like a timeout) and re-raise as a Python error
             raise RuntimeError(f"An error occurred while waiting for dispense to complete: {e}")
@@ -449,6 +453,6 @@ class D2Controller:
         """
         if self._controller and self._controller.ControlConnection:
             command = f"ABORT,{self._controller.ControllerNumberArms},0"
-            print(f"Sending raw command: {command}")
+            log.info(f"Sending raw command: {command}")
             self._controller.ControlConnection.SendMessageRaw(command, False)
-            print("ABORT command sent.")
+            log.info("ABORT command sent.")
