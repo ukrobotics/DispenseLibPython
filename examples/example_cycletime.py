@@ -5,9 +5,13 @@ from typing import List, Dict, Any, Tuple, Optional
 
 # --- Local Imports & .NET Types ---
 from dispenselib.D2Controller import D2Controller
-# Import the pythonnet CLR and the centralized DLL loader
 import clr
-from dispenselib.utils.dlls import ActiveCalibrationData, ChannelCalibration, CalibrationTable, CalibrationPoint, List as DotNetList
+from dispenselib.utils import dlls
+
+# CORRECT: Import the real .NET List and create the Python alias here
+from System.Collections.Generic import List as DotNetList 
+# Import the other .NET types you need directly
+from UKRobotics.D2.DispenseLib.Calibration import ActiveCalibrationData, ChannelCalibration, CalibrationTable, CalibrationPoint
 
 # --- Self-Contained Calibration Loading and .NET Object Creation ---
 
