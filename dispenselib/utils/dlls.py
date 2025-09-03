@@ -29,8 +29,9 @@ try:
     from UKRobotics.D2.DispenseLib.Protocol import ProtocolData, ProtocolWell, ProtocolCsvImporter, ProtocolCsvExporter
     from UKRobotics.D2.DispenseLib.DataAccess import D2DataAccess
     from UKRobotics.Common.Maths import Distance, DistanceUnitType, Volume, VolumeUnitType
+    from UKRobotics.D2.DispenseLib.Calibration import ActiveCalibrationData, ChannelCalibration, CalibrationTable, CalibrationPoint
     from System import Net
-    from System.Collections.Generic import List, Dictionary
+    from System.Collections.Generic import List, Dictionary, DotNetList
     from System.IO.Ports import SerialPort
 
     # Configure the security protocol to ensure web requests to the UK Robotics service succeed.
