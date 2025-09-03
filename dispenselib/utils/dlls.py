@@ -6,6 +6,7 @@ can access .NET types in a clean and consistent way.
 """
 import clr
 import os
+os.environ["PYTHONNET_RUNTIME"] = "netfx"
 import sys
 
 try:
@@ -18,6 +19,7 @@ try:
 
     # Add references to the required .NET assemblies.
     clr.AddReference("System")
+    clr.AddReference("System.IO")
     clr.AddReference("System.Collections")
     clr.AddReference("UKRobotics.Common")
     clr.AddReference("UKRobotics.MotorControllerLib")
@@ -25,12 +27,14 @@ try:
 
     # Import specific classes and namespaces to be exposed to the Python code.
     # This acts as the single source of truth for all .NET types used in the wrapper.
+    from UKRobotics.Common.Maths import Distance, DistanceUnitType, Volume, VolumeUnitType
     from UKRobotics.D2.DispenseLib import D2Controller as DotNetD2Controller
     from UKRobotics.D2.DispenseLib.Protocol import ProtocolData, ProtocolWell, ProtocolCsvImporter, ProtocolCsvExporter
     from UKRobotics.D2.DispenseLib.DataAccess import D2DataAccess
-    from UKRobotics.Common.Maths import Distance, DistanceUnitType, Volume, VolumeUnitType
+    from UKRobotics.D2.DispenseLib.Labware import PlateTypeData
     from UKRobotics.D2.DispenseLib.Calibration import ActiveCalibrationData, ChannelCalibration, CalibrationTable, CalibrationPoint
-    from System import Net
+    from UKRobotics.MotorControllerLib import ControllerParam
+    from System import Net, TimeSpan, Decimal
     from System.Collections.Generic import List, Dictionary
     from System.IO.Ports import SerialPort
 

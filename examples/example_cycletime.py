@@ -6,12 +6,14 @@ from typing import List, Dict, Any, Tuple, Optional
 # --- Local Imports & .NET Types ---
 from dispenselib.D2Controller import D2Controller
 import clr
+from System import Decimal
 from dispenselib.utils import dlls
 
 # CORRECT: Import the real .NET List and create the Python alias here
 from System.Collections.Generic import List as DotNetList 
 # Import the other .NET types you need directly
 from UKRobotics.D2.DispenseLib.Calibration import ActiveCalibrationData, ChannelCalibration, CalibrationTable, CalibrationPoint
+from UKRobotics.Common.Maths import Density, Mass, MassUnitType, VolumeUnitType
 
 # --- Self-Contained Calibration Loading and .NET Object Creation ---
 
@@ -61,8 +63,17 @@ def create_active_calibration_object(cal_profile_ch1: Dict, cal_profile_ch2: Dic
         
         # Create the .NET CalibrationTable
         cal_table = CalibrationTable()
-        cal_table.Density = float(profile.get("density", 1000.0))
-        cal_table.FluidName = profile.get("fluidName", "Default Fluid")
+        # 1. Get the density from the JSON (in kg/m^3)
+        density_in_kg_per_m3 = float(profile.get("density", 1000.0))
+
+        # 2. Convert to kg/L since the constructor needs a mass per liter
+        density_in_kg_per_l = density_in_kg_per_m3 / 1000.0
+
+        # 3. Create the Mass object with the converted value
+        mass_for_density = Mass(density_in_kg_per_l, MassUnitType.kg)
+
+        # 4. Construct the Density object using the correct VolumeUnitType.l
+        cal_table.Density = Density(mass_for_density, VolumeUnitType.l)
         cal_table.Pressure = float(profile.get("pressure", 0.0))
         cal_table.Points = DotNetList[CalibrationPoint]()
 
@@ -72,12 +83,12 @@ def create_active_calibration_object(cal_profile_ch1: Dict, cal_profile_ch2: Dic
             point.OpenTimeUSecs = int(point_dict.get("openTimeUSecs", 0))
             point.InterShotTimeUSecs = int(point_dict.get("interShotTimeUSecs", 0))
             point.ShotCount = int(point_dict.get("shotCount", 0))
-            point.MassGrams = float(point_dict.get("massGrams", 0.0))
+            mass_in_grams = float(point_dict.get("massGrams", 0.0))
+            point.MassGrams = mass_in_grams
+
+            point.Mass = Mass(mass_in_grams, MassUnitType.g)
             cal_table.Points.Add(point)
         
-        # This is the CRITICAL post-processing step for the calibration table to be valid
-        cal_table.UpdateVolumePerShots()
-
         # Wrap the table in a ChannelCalibration object
         channel_cal = ChannelCalibration()
         channel_cal.ValveChannelNumber = valve_number
@@ -86,6 +97,8 @@ def create_active_calibration_object(cal_profile_ch1: Dict, cal_profile_ch2: Dic
         
         # Add the completed channel calibration to the main object
         active_cal_data.Calibrations.Add(channel_cal)
+
+    ActiveCalibrationData.UpdateVolumePerShots(active_cal_data)
 
     return active_cal_data
 
@@ -186,7 +199,7 @@ def main():
     global PLATE_GUID_MAPPING
     PLATE_GUID_MAPPING = {p['Name']: p['Id'] for p in plates if 'Name' in p and 'Id' in p}
 
-    cal_library = CalibrationLibrary("calibrations.json")
+    cal_library = CalibrationLibrary("examples/calibrations.json")
     if not cal_library.calibrations: return
 
     print("--- D2 Dispenser Cycle Time Test Runner ---")

@@ -4,17 +4,55 @@ import sys
 import time
 import threading
 from enum import Enum
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
+import json
+import requests
+import math
 
 # --- Local Imports ---
 from dispenselib.protocol import protocol_handler
 from dispenselib.utils import dlls  # Import the centralized DLL loader
+from dispenselib.compiler import compile_dispense_from_python
+from UKRobotics.D2.DispenseLib.Calibration import ActiveCalibrationData
 
 class DispenseState(Enum):
     """Represents the state of a dispense operation."""
     Error = -1
     Ended = 1
     Running = 0 # A possible state not explicitly in the C# enum but implied
+
+def get_plate_type_data_from_python(guid: str) -> Optional[Any]:
+    """
+    A pure Python implementation to download and create the PlateTypeData object,
+    bypassing all problematic C# I/O and deserialization.
+    """
+    url = f"https://labware.ukrobotics.app/{guid}.json"
+    print(f"Fetching plate data from Python: {url}")
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        py_dict = json.loads(response.text)
+
+        # Create an empty .NET PlateTypeData object
+        plate_data = dlls.PlateTypeData()
+
+        # Manually assign the properties from the Python dictionary.
+        # The pythonnet library will handle converting float to the required decimal type.
+        plate_data.Id = py_dict.get("Id")
+        plate_data.Name = py_dict.get("Name")
+        plate_data.WellCount = int(py_dict.get("WellCount", 0))
+        plate_data.WellPitch = py_dict.get("WellPitch", 0.0)
+        plate_data.XOffsetA1 = py_dict.get("XOffsetA1", 0.0)
+        plate_data.YOffsetA1 = py_dict.get("YOffsetA1", 0.0)
+        plate_data.Height = py_dict.get("Height", 0.0)
+        plate_data.WellVolume = py_dict.get("WellVolume", 0.0)
+        
+        return plate_data
+
+    except (requests.exceptions.RequestException, json.JSONDecodeError) as e:
+        print(f"Error processing plate data in Python: {e}")
+        raise RuntimeError(f"Could not process plate data for GUID {guid}") from e
+
 
 class D2Controller:
     """
@@ -51,60 +89,65 @@ class D2Controller:
         self.dispose()
         sys.exit(0)
 
-    def _execute_local_dispense(self, protocol: Any, plate_type_guid: str):
+    def _execute_local_dispense(self, protocol: Any, plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None):
         """
         Handles the detailed workflow for running a dispense from a local protocol object.
-        This method correctly fetches, processes, and applies calibration data.
+        It can use provided calibration data or fetch the active one from the web.
         """
+        actual_duration_s = 0.0
+        estimated_duration_ms = 0.0
         try:
             plate_type_guid = plate_type_guid.strip()
             self._controller.ClearMotorErrorFlags()
 
-            # 1. Fetch device-specific and plate-specific data
-            device_serial_id = self.read_serial_id()
-            plate_type = dlls.D2DataAccess.GetPlateTypeData(plate_type_guid)
+            # 1. Fetch plate-specific data
+            plate_type = get_plate_type_data_from_python(plate_type_guid)
             
-            # 2. Fetch and correctly process the calibration data (THE CRITICAL FIX)
-            print("Fetching and processing calibration data...")
-            calibration_data = dlls.D2DataAccess.GetActiveCalibrationData(device_serial_id)
-            # This next line is the essential step that was missing.
-            dlls.ActiveCalibrationData.UpdateVolumePerShots(calibration_data)
-            print("Calibration data processed successfully.")
+            # 2. Use provided calibration data or fetch from the web
+            processed_calibration_data = None
+            if calibration_data:
+                print("Using provided local calibration data.")
+                processed_calibration_data = calibration_data
+            else:
+                print("Fetching and processing active calibration data from the web...")
+                device_serial_id = self.read_serial_id()
+                processed_calibration_data = dlls.D2DataAccess.GetActiveCalibrationData(device_serial_id)
+                dlls.ActiveCalibrationData.UpdateVolumePerShots(processed_calibration_data)
+                print("Calibration data processed successfully.")
 
-            # 3. Compile dispense commands using the processed data
+            # 3. Compile dispense commands
             print("Compiling dispense commands...")
-            dispense_commands = self._controller.CompileDispense(
-                calibration_data, protocol, plate_type
+            dispense_commands = compile_dispense_from_python(
+                self._controller.ControllerNumberArms,
+                processed_calibration_data, 
+                protocol, 
+                plate_type
             )
 
-            # 4. Prepare the hardware for dispensing
+            # 4. Prepare hardware
             plate_height = dlls.Distance(plate_type.Height, dlls.DistanceUnitType.mm)
             dispense_height = plate_height + dlls.Distance.Parse("1mm")
-            self.move_z_to_height(dispense_height.GetValue(dlls.DistanceUnitType.mm))
+            self.move_z_to_height_from_python(dispense_height.GetValue(dlls.DistanceUnitType.mm))
             self.set_clamp(True)
             
-            # 5. Send commands to the controller
+            # 5. Send commands
             print(f"Sending {len(dispense_commands)} commands to the dispenser...")
             for command in dispense_commands:
-                # Success and error message are out-parameters in C#, ignored here
                 success = True
                 error_message = ""
                 self._controller.ControlConnection.SendMessageRaw(command, True, success, error_message)
 
-            # 6. Start the dispense and wait for completion
+            # 6. Start dispense and measure time
             print("Starting dispense...")
             response = self._controller.ControlConnection.SendMessage("DISPENSE", self._controller.ControllerNumberArms, 0)
+            response.GetParameter(0, estimated_duration_ms)
             
-            # Estimate duration (optional, but good for user feedback)
-            duration_millis = 0.0
-            response.GetParameter(0, duration_millis)
-            duration_estimate_seconds = duration_millis / 1000
-            print(f"Estimated dispense duration: {duration_estimate_seconds:.2f} seconds.")
-
-            self.wait_for_dispense_complete(int(duration_estimate_seconds) + 30)
+            start_time = time.time()
+            self.wait_for_dispense_complete(int(estimated_duration_ms / 1000) + 30)
+            actual_duration_s = time.time() - start_time
 
         finally:
-            # 7. Cleanup: Ensure motors are disabled and clamp is released
+            # 7. Cleanup
             print("Dispense finished. Cleaning up...")
             try:
                 self._controller.DisableAllMotors()
@@ -114,36 +157,36 @@ class D2Controller:
                 self.set_clamp(False)
             except Exception as e:
                 print(f"Error releasing clamp: {e}")
+        
+        return estimated_duration_ms, actual_duration_s
 
 
-    def _run_in_thread(self, target_func, *args):
+    def _run_in_thread(self, target_func, *args, **kwargs):
         """
-        A generic helper to run a blocking .NET call in a separate thread,
-        allowing the main thread to remain responsive to signals like Ctrl+C.
+        A generic helper to run a blocking .NET call in a separate thread.
+        Now supports keyword arguments.
         """
+        result_holder = []
         exception_holder = []
 
         def worker():
             """The target function for the dispense thread."""
             try:
-                # This is the blocking call
-                target_func(*args)
+                result = target_func(*args, **kwargs)
+                result_holder.append(result)
             except Exception as e:
-                # If an error occurs in the thread, store it so the main thread can raise it.
                 exception_holder.append(e)
 
         self._dispense_thread = threading.Thread(target=worker)
         self._dispense_thread.start()
 
-        # Wait for the thread to complete, but with a timeout on join()
-        # so that the main thread can be interrupted by signals.
         while self._dispense_thread.is_alive():
             self._dispense_thread.join(timeout=0.1)
 
-        # After the thread has finished, check if it raised an exception.
         if exception_holder:
-            # Re-raise the exception in the main thread.
             raise exception_holder[0]
+        
+        return result_holder[0] if result_holder else None
 
     def open_comms(self, com_port: str, baud: int = 115200):
         """
@@ -169,33 +212,35 @@ class D2Controller:
     def run_dispense_from_id(self, protocol_id: str, plate_type_guid: str):
         """
         Runs a dispense protocol fetched from the web service using its ID.
-        This method uses the original, direct C# call which handles calibration correctly.
         """
         print(f"Running dispense for protocol ID: {protocol_id}")
+        # This original method doesn't return anything.
         self._run_in_thread(self._controller.RunDispense, protocol_id, plate_type_guid)
         print("Dispense completed.")
 
-    def run_dispense_from_csv(self, csv_file_path: str, plate_type_guid: str):
+    def run_dispense_from_csv(self, csv_file_path: str, plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None):
         """
         Runs a dispense protocol defined in a local CSV file.
-        This now uses the new workflow to ensure correct calibration.
+        Accepts an optional pre-loaded calibration object.
         """
         print(f"Importing protocol from {csv_file_path}...")
         protocol = protocol_handler.import_from_csv(csv_file_path)
         print(f"Running dispense from imported CSV protocol: {protocol.Name}")
-        self._run_in_thread(self._execute_local_dispense, protocol, plate_type_guid)
+        result = self._run_in_thread(self._execute_local_dispense, protocol, plate_type_guid, calibration_data=calibration_data)
         print("Dispense completed.")
+        return result
 
-    def run_dispense_from_list(self, well_data: List[Dict[str, Any]], plate_type_guid: str):
+    def run_dispense_from_list(self, well_data: List[Dict[str, Any]], plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None):
         """
         Runs a dispense protocol defined dynamically from a Python list.
-        This now uses the new workflow to ensure correct calibration.
+        Accepts an optional pre-loaded calibration object.
         """
         print("Generating protocol from Python list...")
         protocol = protocol_handler.from_list(well_data)
         print(f"Running dispense from dynamic protocol: {protocol.Name}")
-        self._run_in_thread(self._execute_local_dispense, protocol, plate_type_guid)
+        result = self._run_in_thread(self._execute_local_dispense, protocol, plate_type_guid, calibration_data=calibration_data)
         print("Dispense completed.")
+        return result
 
     # --- Protocol Management ---
 
@@ -246,14 +291,44 @@ class D2Controller:
         self._controller.MoveZToDispenseHeight(target_distance)
         print("Z-axis move complete.")
 
+    def move_z_to_height_from_python(self, height_mm: float):
+        """
+        A pure Python re-implementation of the C# MoveZToDispenseHeight method.
+        This avoids the final TypeLoadException by performing calculations in Python.
+        """
+        print(f"Moving Z-axis to {height_mm} mm (Python implementation)...")
+        # Use the underlying .NET objects for hardware interaction
+        z_axis = self._controller.ZAxis
+        
+        # 1. Check if homed and home if necessary
+        if not z_axis.ReadBoolean(dlls.ControllerParam.IsHomed):
+            print("Z-axis not homed. Homing now...")
+            z_axis.Home()
+            time.sleep(1) # Small wait to ensure homing has started
+            z_axis.WaitForIsHomed(dlls.TimeSpan.FromSeconds(40))
+            print("Z-axis homing complete.")
+
+        # 2. Calculate height in microns using Python's math
+        target_distance = dlls.Distance(height_mm, dlls.DistanceUnitType.mm)
+        height_microns = int(round(target_distance.GetValue(dlls.DistanceUnitType.um)))
+
+        # 3. Send the raw move command
+        self._controller.ControlConnection.SendMessage(
+            "MOVE_Z",
+            self._controller.ControllerNumberZAxis,
+            self._controller.AxisNumberZAxis,
+            height_microns
+        )
+
+        # 4. Wait for the move to settle
+        z_axis.WaitForPositionSettledAndInRange(dlls.TimeSpan.FromSeconds(30))
+        print("Z-axis move complete.")
+
     def read_serial_id(self) -> str:
         """
         Reads the unique serial ID from the connected D2 device.
         """
-        # This method is called frequently now, so let's make it quieter.
-        # print("Reading device serial ID...")
         serial_id = self._controller.ReadSerialIDFromDevice()
-        # print(f"Device Serial ID: {serial_id}")
         return serial_id
 
     def set_clamp(self, clamped: bool):
@@ -283,31 +358,28 @@ class D2Controller:
         except ValueError:
             return DispenseState.Running
 
-    def wait_for_dispense_complete(self, timeout_seconds: int = 120):
+    def wait_for_dispense_complete(self, timeout_seconds: float):
         """
-        Blocks execution until the current dispense operation is complete.
+        Blocks until the dispense is complete by calling the original C# method,
+        which is more reliable than a Python-based polling loop.
         """
-        print("Waiting for dispense to complete...")
-        start_time = time.time()
-        while time.time() - start_time < timeout_seconds:
-            state = self.get_dispense_state()
-            if state == DispenseState.Ended:
-                print("Dispense has completed.")
-                return
-            if state == DispenseState.Error:
-                raise RuntimeError("Dispenser reported an error during the dispense operation.")
-            time.sleep(0.5)
-        
-        raise TimeoutError(f"Dispense did not complete within the {timeout_seconds} second timeout.")
+        try:
+            print(f"Waiting for dispense to complete (C# timeout activated)...")
+            # Create a .NET TimeSpan object from the provided seconds
+            timeout_span = dlls.TimeSpan.FromSeconds(timeout_seconds)
+            # Call the underlying, robust C# method directly
+            self._controller.WaitForDispenseComplete(timeout_span)
+            print("Dispense has completed.")
+        except Exception as e:
+            # Catch exceptions from the C# side (like a timeout) and re-raise as a Python error
+            raise RuntimeError(f"An error occurred while waiting for dispense to complete: {e}")
 
     def abort(self):
         """
         Sends a raw ABORT command to immediately stop the current operation on the hardware.
         """
         if self._controller and self._controller.ControlConnection:
-            # The command string is based on the JavaScript example
             command = f"ABORT,{self._controller.ControllerNumberArms},0"
             print(f"Sending raw command: {command}")
-            # Use the underlying ControlConnection to send the raw command string
             self._controller.ControlConnection.SendMessageRaw(command, False)
             print("ABORT command sent.")
