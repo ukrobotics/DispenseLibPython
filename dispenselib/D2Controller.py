@@ -13,6 +13,7 @@ import math
 from dispenselib.protocol import protocol_handler
 from dispenselib.utils import dlls  # Import the centralized DLL loader
 from dispenselib.compiler import compile_dispense_from_python
+from System import Double
 from UKRobotics.D2.DispenseLib.Calibration import ActiveCalibrationData
 
 class DispenseState(Enum):
@@ -89,6 +90,74 @@ class D2Controller:
         self.dispose()
         sys.exit(0)
 
+    def get_dispense_estimate_from_list(self, well_data: List[Dict[str, Any]], plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None) -> Optional[float]:
+        """
+        Prepares a dispense, starts it to get the time estimate, then immediately aborts.
+        """
+        print("Generating protocol from Python list for estimation...")
+        protocol = protocol_handler.from_list(well_data)
+        
+        # This can be run in the main thread as it's not a long-running blocking call
+        estimated_duration_ms = self._execute_for_estimation(protocol, plate_type_guid, calibration_data)
+        
+        print("Estimation complete.")
+        return estimated_duration_ms
+
+    def _execute_for_estimation(self, protocol: Any, plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None) -> Optional[float]:
+        """
+        A helper that performs the start-estimate-abort sequence.
+        """
+        estimated_duration_ms = 0.0
+        try:
+            plate_type = get_plate_type_data_from_python(plate_type_guid)
+            
+            processed_calibration_data = calibration_data
+            if not processed_calibration_data:
+                device_serial_id = self.read_serial_id()
+                processed_calibration_data = dlls.D2DataAccess.GetActiveCalibrationData(device_serial_id)
+                dlls.ActiveCalibrationData.UpdateVolumePerShots(processed_calibration_data)
+
+            dispense_commands = compile_dispense_from_python(
+                self._controller.ControllerNumberArms,
+                processed_calibration_data, 
+                protocol, 
+                plate_type
+            )
+
+            plate_height = dlls.Distance(plate_type.Height, dlls.DistanceUnitType.mm)
+            dispense_height = plate_height + dlls.Distance.Parse("1mm")
+            self.move_z_to_height_from_python(dispense_height.GetValue(dlls.DistanceUnitType.mm))
+            self.set_clamp(True)
+            
+            for command in dispense_commands:
+                self._controller.ControlConnection.SendMessageRaw(command, True)
+
+            # Start dispense and immediately get the estimate
+            response = self._controller.ControlConnection.SendMessage("DISPENSE", self._controller.ControllerNumberArms, 0)
+            if response.ParameterCount > 0:
+                estimated_duration_ms = float(response.GetParameter(0)) / 1000
+                self.abort()  # Immediately abort after getting the estimate
+            else:
+                print("Warning: Controller response contained no parameters for estimation.")
+
+
+            """ self.abort()
+            time.sleep(0.5) # Give abort command time to process """
+
+        finally:
+            # Cleanup
+            print("Cleaning up after estimation...")
+            try:
+                self._controller.DisableAllMotors()
+            except Exception as e:
+                print(f"Error disabling motors: {e}")
+            try:
+                self.set_clamp(False)
+            except Exception as e:
+                print(f"Error releasing clamp: {e}")
+        
+        return estimated_duration_ms
+
     def _execute_local_dispense(self, protocol: Any, plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None):
         """
         Handles the detailed workflow for running a dispense from a local protocol object.
@@ -141,7 +210,7 @@ class D2Controller:
             print("Starting dispense...")
             response = self._controller.ControlConnection.SendMessage("DISPENSE", self._controller.ControllerNumberArms, 0)
             response.GetParameter(0, estimated_duration_ms)
-            
+
             start_time = time.time()
             self.wait_for_dispense_complete(int(estimated_duration_ms / 1000) + 30)
             actual_duration_s = time.time() - start_time

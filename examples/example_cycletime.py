@@ -8,10 +8,7 @@ from dispenselib.D2Controller import D2Controller
 import clr
 from System import Decimal
 from dispenselib.utils import dlls
-
-# CORRECT: Import the real .NET List and create the Python alias here
 from System.Collections.Generic import List as DotNetList 
-# Import the other .NET types you need directly
 from UKRobotics.D2.DispenseLib.Calibration import ActiveCalibrationData, ChannelCalibration, CalibrationTable, CalibrationPoint
 from UKRobotics.Common.Maths import Density, Mass, MassUnitType, VolumeUnitType
 
@@ -51,33 +48,18 @@ class CalibrationLibrary:
 def create_active_calibration_object(cal_profile_ch1: Dict, cal_profile_ch2: Dict) -> ActiveCalibrationData:
     """
     Constructs a .NET ActiveCalibrationData object from Python dictionaries.
-    This function manually builds the required nested .NET objects.
     """
-    # This is the top-level object the controller expects
     active_cal_data = ActiveCalibrationData()
     active_cal_data.Calibrations = DotNetList[ChannelCalibration]()
-
-    # Process calibration for each channel (valve)
     for i, profile in enumerate([cal_profile_ch1, cal_profile_ch2]):
         valve_number = i + 1
-        
-        # Create the .NET CalibrationTable
         cal_table = CalibrationTable()
-        # 1. Get the density from the JSON (in kg/m^3)
         density_in_kg_per_m3 = float(profile.get("density", 1000.0))
-
-        # 2. Convert to kg/L since the constructor needs a mass per liter
         density_in_kg_per_l = density_in_kg_per_m3 / 1000.0
-
-        # 3. Create the Mass object with the converted value
         mass_for_density = Mass(density_in_kg_per_l, MassUnitType.kg)
-
-        # 4. Construct the Density object using the correct VolumeUnitType.l
         cal_table.Density = Density(mass_for_density, VolumeUnitType.l)
         cal_table.Pressure = float(profile.get("pressure", 0.0))
         cal_table.Points = DotNetList[CalibrationPoint]()
-
-        # Create and add each .NET CalibrationPoint
         for point_dict in profile.get("points", []):
             point = CalibrationPoint()
             point.OpenTimeUSecs = int(point_dict.get("openTimeUSecs", 0))
@@ -85,21 +67,14 @@ def create_active_calibration_object(cal_profile_ch1: Dict, cal_profile_ch2: Dic
             point.ShotCount = int(point_dict.get("shotCount", 0))
             mass_in_grams = float(point_dict.get("massGrams", 0.0))
             point.MassGrams = mass_in_grams
-
             point.Mass = Mass(mass_in_grams, MassUnitType.g)
             cal_table.Points.Add(point)
-        
-        # Wrap the table in a ChannelCalibration object
         channel_cal = ChannelCalibration()
         channel_cal.ValveChannelNumber = valve_number
         channel_cal.Calibrations = DotNetList[CalibrationTable]()
         channel_cal.Calibrations.Add(cal_table)
-        
-        # Add the completed channel calibration to the main object
         active_cal_data.Calibrations.Add(channel_cal)
-
     ActiveCalibrationData.UpdateVolumePerShots(active_cal_data)
-
     return active_cal_data
 
 # --- Main Script Logic ---
@@ -132,8 +107,7 @@ def load_json_file(filename: str) -> Any:
 def find_latest_calibration_for_valve_pressure(cal_library: CalibrationLibrary, valve_type: str, pressure_bar: float, tolerance=0.01) -> Optional[CalibrationData]:
     """Finds the newest calibration for a specific valve and pressure."""
     matches = [cal for cal in cal_library.calibrations if cal.valve_type == valve_type and abs(cal.pressure_bar - pressure_bar) <= tolerance]
-    if not matches:
-        return None
+    if not matches: return None
     matches.sort(key=lambda c: c.id, reverse=True)
     return matches[0]
 
@@ -151,8 +125,11 @@ def generate_well_names(rows: int, cols: int) -> List[str]:
         return label
     return [f"{get_row_label(r)}{c+1}" for r in range(rows) for c in range(cols)]
 
-def run_dispense_test(controller: D2Controller, test_run: Dict[str, Any]) -> Optional[float]:
-    """Executes a dispense, measures the duration, and logs the result."""
+# --- THIS IS THE UPDATED FUNCTION ---
+def get_dispense_estimate(controller: D2Controller, test_run: Dict[str, Any]) -> Optional[float]:
+    """
+    Gets a dispense time estimate without running the full dispense.
+    """
     plate_info, volume_ul = test_run["plate_info"], test_run["volume"]
     plate_guid = plate_info.get("Id")
     if not plate_guid: return None
@@ -162,33 +139,39 @@ def run_dispense_test(controller: D2Controller, test_run: Dict[str, Any]) -> Opt
     well_names = generate_well_names(dimensions[0], dimensions[1])
     well_data = [{"wellName": well, "valve1_ul": volume_ul, "valve2_ul": 0.0} for well in well_names]
 
-    # Use the new, self-contained function to create the .NET object
     python_cal_profile = test_run["cal_to_use"]
     active_cal_object = create_active_calibration_object(
         cal_profile_ch1=python_cal_profile.to_dict(),
-        cal_profile_ch2=python_cal_profile.to_dict() # Use same profile for both valves
+        cal_profile_ch2=python_cal_profile.to_dict()
     )
 
     try:
-        result = controller.run_dispense_from_list(well_data, plate_guid, calibration_data=active_cal_object)
-        if result is None:
-            print("Error: run_dispense_from_list returned None.")
+        # Call the new controller method to get only the estimate
+        estimated_duration_ms = controller.get_dispense_estimate_from_list(
+            well_data,
+            plate_guid,
+            calibration_data=active_cal_object
+        )
+        
+        if estimated_duration_ms is None:
+            print("Error: get_dispense_estimate_from_list returned None.")
             return None
-            
-        estimated_duration_ms, actual_duration_s = result
+        
         valve_diameter = VALVE_TYPE_TO_DIAMETER_MM.get(test_run['valve'], "Unknown")
 
+        # Log only the estimated time
         log_measurement({
             "valve_diameter_mm": valve_diameter, "pressure_bar": test_run['pressure'],
             "well_count": plate_info.get('WellCount', 0), "volume_ul": test_run['volume'],
-            "estimated_time_ms": round(estimated_duration_ms, 2), "actual_time_s": round(actual_duration_s, 4)
+            "estimated_time_ms": round(estimated_duration_ms, 2)
         })
-        return actual_duration_s
+        return estimated_duration_ms
         
     except Exception as e:
-        print(f"An error occurred during the dispense run: {e}")
+        print(f"An error occurred during estimation: {e}")
         traceback.print_exc()
         return None
+# --- END UPDATED FUNCTION ---
 
 def main():
     """Main function to build and execute the test plan."""
@@ -202,7 +185,7 @@ def main():
     cal_library = CalibrationLibrary("examples/calibrations.json")
     if not cal_library.calibrations: return
 
-    print("--- D2 Dispenser Cycle Time Test Runner ---")
+    print("--- D2 Dispenser Cycle Time Estimator ---")
 
     experiment_combinations = []
     seen = set()
@@ -227,27 +210,23 @@ def main():
     
     print("\n--- GENERATED TEST PLAN ---")
     if not full_test_plan:
-        print("No valid test combinations could be generated.")
-        return
+        print("No valid test combinations could be generated."); return
         
     for i, run in enumerate(full_test_plan, 1):
         print(f"{i}: {{Valve: {VALVE_TYPE_TO_DIAMETER_MM.get(run['valve'])}mm, Pressure: {run['pressure']} bar, Vol: {run['volume']} µL, Plate: {run['plate_info'].get('WellCount')}-well}}")
     
     try:
-        input("\nPress Enter to begin the test run, or Ctrl+C to cancel.")
+        input("\nPress Enter to begin the estimation run, or Ctrl+C to cancel.")
     except KeyboardInterrupt:
-        print("\nOperation cancelled by user.")
-        return
+        print("\nOperation cancelled by user."); return
 
     print("\n--- Device Connection ---")
     try:
         ports = D2Controller.get_available_com_ports()
-        if not ports:
-            print("No COM ports found. Ensure D2 dispenser is connected."); return
+        if not ports: print("No COM ports found."); return
         print("Available COM ports:", ", ".join(ports))
         port = ports[0] if len(ports) == 1 else input("Enter COM port: ").strip()
-        if not port:
-            print("No COM port provided. Exiting."); return
+        if not port: print("No COM port provided."); return
     except Exception as e:
         print(f"Could not list COM ports. Error: {e}"); return
 
@@ -255,10 +234,14 @@ def main():
         with D2Controller() as controller:
             controller.open_comms(port)
             for i, run_details in enumerate(full_test_plan, 1):
-                print(f"Running Test {i}/{len(full_test_plan)}: {{Valve: {VALVE_TYPE_TO_DIAMETER_MM.get(run_details['valve'])}mm, Pressure: {run_details['pressure']}, Vol: {run_details['volume']}, Plate: {run_details['plate_info'].get('WellCount')}-well}}")
-                duration = run_dispense_test(controller, run_details)
-                if duration:
-                    print(f"  -> SUCCESS: Dispense completed in {duration:.2f} seconds.\n")
+                print(f"Estimating Test {i}/{len(full_test_plan)}: {{Valve: {VALVE_TYPE_TO_DIAMETER_MM.get(run_details['valve'])}mm, Pressure: {run_details['pressure']}, Vol: {run_details['volume']}, Plate: {run_details['plate_info'].get('WellCount')}-well}}")
+                
+                # --- THIS IS THE UPDATED CALL ---
+                estimate = get_dispense_estimate(controller, run_details)
+                # --- END UPDATED CALL ---
+
+                if estimate is not None:
+                    print(f"  -> SUCCESS: Estimated duration is {estimate/1000:.2f} seconds.\n")
                 else:
                     print(f"  -> FAILED: Test did not complete successfully.\n")
                 time.sleep(1)
@@ -267,7 +250,7 @@ def main():
     except Exception as e:
         print(f"\nA critical error occurred: {e}"); traceback.print_exc()
     finally:
-        print("\nTest run finished.")
+        print("\nEstimation run finished.")
 
 if __name__ == "__main__":
     main()
