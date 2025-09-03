@@ -140,14 +140,6 @@ class D2Controller:
         log.info("Dispense completed.")
         return result
 
-    def run_dispense_from_list(self, well_data: List[Dict[str, Any]], plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None):
-        log.info("Generating protocol from Python list...")
-        protocol = protocol_handler.from_list(well_data)
-        log.info(f"Running dispense from dynamic protocol: {protocol.Name}")
-        result = self._run_in_thread(self._execute_local_dispense, protocol, plate_type_guid, calibration_data=calibration_data)
-        log.info("Dispense completed.")
-        return result
-
     def read_serial_id(self) -> str:
         return self._controller.ReadSerialIDFromDevice()
 

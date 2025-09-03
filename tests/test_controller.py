@@ -12,7 +12,6 @@ def mock_dotnet_dependencies(mocker):
     mocker.patch('dispenselib.utils.dlls.DotNetD2Controller', return_value=MagicMock())
     mocker.patch('dispenselib.utils.dlls.ProtocolData', return_value=MagicMock())
     mocker.patch('dispenselib.utils.dlls.D2DataAccess', return_value=MagicMock())
-    mocker.patch('dispenselib.protocol.protocol_handler.from_list', return_value=MagicMock())
     mocker.patch('dispenselib.protocol.protocol_handler.import_from_csv', return_value=MagicMock())
 
 
@@ -55,27 +54,6 @@ def test_context_manager_calls_dispose(mocker):
 
     # Assert that dispose was called exactly once when exiting the 'with' block
     spy_dispose.assert_called_once()
-
-""" def test_run_dispense_from_list(controller: D2Controller):
-    # Arrange
-    test_protocol_list = [{"wellName": "A1", "valve1_ul": 10}]
-    plate_guid = "test-plate-guid"
-    
-    # Act
-    controller.run_dispense_from_list(test_protocol_list, plate_guid)
-
-    # Assert
-    # Verify that the protocol handler was called with our Python list
-    from dispenselib.protocol import protocol_handler
-    protocol_handler.from_list.assert_called_once_with(test_protocol_list)
-    
-    # Verify that the .NET RunDispense method was called with the result
-    # from the protocol handler and the correct plate GUID.
-    controller._controller.RunDispense.assert_called_once()
-    # We check the arguments it was called with
-    args, _ = controller._controller.RunDispense.call_args
-    assert args[0] is protocol_handler.from_list.return_value
-    assert args[1] == plate_guid """
 
 def test_signal_handler_graceful_exit(mocker):
     """
