@@ -51,24 +51,88 @@ class D2Controller:
         self.dispose()
         sys.exit(0)
 
-    def _run_dispense_in_thread(self, protocol_or_id: Any, plate_type_guid: str):
+    def _execute_local_dispense(self, protocol: Any, plate_type_guid: str):
         """
-        A private helper to run the blocking .NET dispense call in a separate thread,
+        Handles the detailed workflow for running a dispense from a local protocol object.
+        This method correctly fetches, processes, and applies calibration data.
+        """
+        try:
+            plate_type_guid = plate_type_guid.strip()
+            self._controller.ClearMotorErrorFlags()
+
+            # 1. Fetch device-specific and plate-specific data
+            device_serial_id = self.read_serial_id()
+            plate_type = dlls.D2DataAccess.GetPlateTypeData(plate_type_guid)
+            
+            # 2. Fetch and correctly process the calibration data (THE CRITICAL FIX)
+            print("Fetching and processing calibration data...")
+            calibration_data = dlls.D2DataAccess.GetActiveCalibrationData(device_serial_id)
+            # This next line is the essential step that was missing.
+            dlls.ActiveCalibrationData.UpdateVolumePerShots(calibration_data)
+            print("Calibration data processed successfully.")
+
+            # 3. Compile dispense commands using the processed data
+            print("Compiling dispense commands...")
+            dispense_commands = self._controller.CompileDispense(
+                calibration_data, protocol, plate_type
+            )
+
+            # 4. Prepare the hardware for dispensing
+            plate_height = dlls.Distance(plate_type.Height, dlls.DistanceUnitType.mm)
+            dispense_height = plate_height + dlls.Distance.Parse("1mm")
+            self.move_z_to_height(dispense_height.GetValue(dlls.DistanceUnitType.mm))
+            self.set_clamp(True)
+            
+            # 5. Send commands to the controller
+            print(f"Sending {len(dispense_commands)} commands to the dispenser...")
+            for command in dispense_commands:
+                # Success and error message are out-parameters in C#, ignored here
+                success = True
+                error_message = ""
+                self._controller.ControlConnection.SendMessageRaw(command, True, success, error_message)
+
+            # 6. Start the dispense and wait for completion
+            print("Starting dispense...")
+            response = self._controller.ControlConnection.SendMessage("DISPENSE", self._controller.ControllerNumberArms, 0)
+            
+            # Estimate duration (optional, but good for user feedback)
+            duration_millis = 0.0
+            response.GetParameter(0, duration_millis)
+            duration_estimate_seconds = duration_millis / 1000
+            print(f"Estimated dispense duration: {duration_estimate_seconds:.2f} seconds.")
+
+            self.wait_for_dispense_complete(int(duration_estimate_seconds) + 30)
+
+        finally:
+            # 7. Cleanup: Ensure motors are disabled and clamp is released
+            print("Dispense finished. Cleaning up...")
+            try:
+                self._controller.DisableAllMotors()
+            except Exception as e:
+                print(f"Error disabling motors: {e}")
+            try:
+                self.set_clamp(False)
+            except Exception as e:
+                print(f"Error releasing clamp: {e}")
+
+
+    def _run_in_thread(self, target_func, *args):
+        """
+        A generic helper to run a blocking .NET call in a separate thread,
         allowing the main thread to remain responsive to signals like Ctrl+C.
         """
         exception_holder = []
 
-        def dispense_worker():
+        def worker():
             """The target function for the dispense thread."""
             try:
                 # This is the blocking call
-                self._controller.RunDispense(protocol_or_id, plate_type_guid)
+                target_func(*args)
             except Exception as e:
                 # If an error occurs in the thread, store it so the main thread can raise it.
-                # This includes exceptions caused by calling dispose() during a run.
                 exception_holder.append(e)
 
-        self._dispense_thread = threading.Thread(target=dispense_worker)
+        self._dispense_thread = threading.Thread(target=worker)
         self._dispense_thread.start()
 
         # Wait for the thread to complete, but with a timeout on join()
@@ -105,29 +169,32 @@ class D2Controller:
     def run_dispense_from_id(self, protocol_id: str, plate_type_guid: str):
         """
         Runs a dispense protocol fetched from the web service using its ID.
+        This method uses the original, direct C# call which handles calibration correctly.
         """
         print(f"Running dispense for protocol ID: {protocol_id}")
-        self._run_dispense_in_thread(protocol_id, plate_type_guid)
+        self._run_in_thread(self._controller.RunDispense, protocol_id, plate_type_guid)
         print("Dispense completed.")
 
     def run_dispense_from_csv(self, csv_file_path: str, plate_type_guid: str):
         """
         Runs a dispense protocol defined in a local CSV file.
+        This now uses the new workflow to ensure correct calibration.
         """
         print(f"Importing protocol from {csv_file_path}...")
         protocol = protocol_handler.import_from_csv(csv_file_path)
         print(f"Running dispense from imported CSV protocol: {protocol.Name}")
-        self._run_dispense_in_thread(protocol, plate_type_guid)
+        self._run_in_thread(self._execute_local_dispense, protocol, plate_type_guid)
         print("Dispense completed.")
 
     def run_dispense_from_list(self, well_data: List[Dict[str, Any]], plate_type_guid: str):
         """
         Runs a dispense protocol defined dynamically from a Python list.
+        This now uses the new workflow to ensure correct calibration.
         """
         print("Generating protocol from Python list...")
         protocol = protocol_handler.from_list(well_data)
         print(f"Running dispense from dynamic protocol: {protocol.Name}")
-        self._run_dispense_in_thread(protocol, plate_type_guid)
+        self._run_in_thread(self._execute_local_dispense, protocol, plate_type_guid)
         print("Dispense completed.")
 
     # --- Protocol Management ---
@@ -183,9 +250,10 @@ class D2Controller:
         """
         Reads the unique serial ID from the connected D2 device.
         """
-        print("Reading device serial ID...")
+        # This method is called frequently now, so let's make it quieter.
+        # print("Reading device serial ID...")
         serial_id = self._controller.ReadSerialIDFromDevice()
-        print(f"Device Serial ID: {serial_id}")
+        # print(f"Device Serial ID: {serial_id}")
         return serial_id
 
     def set_clamp(self, clamped: bool):
