@@ -1,0 +1,3908 @@
+[
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 7.73
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 15.41
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 1,
+    "estimated_time_ms": 11.24
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 11.52
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 5,
+    "estimated_time_ms": 11.96
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 10,
+    "estimated_time_ms": 12.82
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 20,
+    "estimated_time_ms": 14.51
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 45,
+    "estimated_time_ms": 18.66
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 80,
+    "estimated_time_ms": 24.45
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 125,
+    "estimated_time_ms": 31.91
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 250,
+    "estimated_time_ms": 52.6
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 300,
+    "estimated_time_ms": 60.88
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 500,
+    "estimated_time_ms": 93.99
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 1000,
+    "estimated_time_ms": 176.77
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 2000,
+    "estimated_time_ms": 342.33
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 10.63
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 22.73
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 1,
+    "estimated_time_ms": 21.06
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 21.62
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 5,
+    "estimated_time_ms": 22.5
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 10,
+    "estimated_time_ms": 24.23
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 20,
+    "estimated_time_ms": 27.61
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 45,
+    "estimated_time_ms": 35.9
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 80,
+    "estimated_time_ms": 47.49
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 125,
+    "estimated_time_ms": 62.4
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 250,
+    "estimated_time_ms": 103.79
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 300,
+    "estimated_time_ms": 120.34
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 500,
+    "estimated_time_ms": 186.57
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 1000,
+    "estimated_time_ms": 352.13
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 12.21
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 29.11
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 1,
+    "estimated_time_ms": 37.86
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 38.97
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 5,
+    "estimated_time_ms": 40.74
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 10,
+    "estimated_time_ms": 44.2
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 20,
+    "estimated_time_ms": 50.95
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 45,
+    "estimated_time_ms": 67.53
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 80,
+    "estimated_time_ms": 90.72
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 125,
+    "estimated_time_ms": 120.53
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 250,
+    "estimated_time_ms": 203.31
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 300,
+    "estimated_time_ms": 236.42
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 500,
+    "estimated_time_ms": 368.87
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 1000,
+    "estimated_time_ms": 699.99
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 2000,
+    "estimated_time_ms": 1362.24
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 20.11
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 55.4
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 1,
+    "estimated_time_ms": 125.73
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 130.18
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 5,
+    "estimated_time_ms": 137.23
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 10,
+    "estimated_time_ms": 151.1
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 20,
+    "estimated_time_ms": 178.1
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 45,
+    "estimated_time_ms": 244.4
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 80,
+    "estimated_time_ms": 337.19
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 125,
+    "estimated_time_ms": 456.39
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 250,
+    "estimated_time_ms": 787.51
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 300,
+    "estimated_time_ms": 919.97
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 35.37
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 107.43
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 1,
+    "estimated_time_ms": 418.71
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 436.51
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 5,
+    "estimated_time_ms": 464.71
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 10,
+    "estimated_time_ms": 520.22
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 7.57
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 8.62
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 1,
+    "estimated_time_ms": 11.62
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 11.27
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 5,
+    "estimated_time_ms": 11.71
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 10,
+    "estimated_time_ms": 12.28
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 20,
+    "estimated_time_ms": 13.41
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 45,
+    "estimated_time_ms": 15.93
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 80,
+    "estimated_time_ms": 19.43
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 125,
+    "estimated_time_ms": 23.95
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 250,
+    "estimated_time_ms": 36.59
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 300,
+    "estimated_time_ms": 41.64
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 500,
+    "estimated_time_ms": 61.87
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 1000,
+    "estimated_time_ms": 112.43
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 2000,
+    "estimated_time_ms": 213.56
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 10.37
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 12.04
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 1,
+    "estimated_time_ms": 16.78
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 21.12
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 5,
+    "estimated_time_ms": 22.01
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 10,
+    "estimated_time_ms": 23.14
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 20,
+    "estimated_time_ms": 25.41
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 45,
+    "estimated_time_ms": 30.44
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 80,
+    "estimated_time_ms": 37.45
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 125,
+    "estimated_time_ms": 46.48
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 250,
+    "estimated_time_ms": 71.76
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 300,
+    "estimated_time_ms": 81.87
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 500,
+    "estimated_time_ms": 122.33
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 1000,
+    "estimated_time_ms": 223.45
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 11.84
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 14.21
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 1,
+    "estimated_time_ms": 20.82
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 37.98
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 5,
+    "estimated_time_ms": 39.75
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 10,
+    "estimated_time_ms": 42.02
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 20,
+    "estimated_time_ms": 46.55
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 45,
+    "estimated_time_ms": 56.61
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 80,
+    "estimated_time_ms": 70.63
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 125,
+    "estimated_time_ms": 88.69
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 250,
+    "estimated_time_ms": 139.26
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 300,
+    "estimated_time_ms": 159.48
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 500,
+    "estimated_time_ms": 240.38
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 1000,
+    "estimated_time_ms": 442.64
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 2000,
+    "estimated_time_ms": 847.14
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 19.31
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 24.31
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 1,
+    "estimated_time_ms": 38.13
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 126.18
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 5,
+    "estimated_time_ms": 133.29
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 10,
+    "estimated_time_ms": 142.36
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 20,
+    "estimated_time_ms": 160.5
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 45,
+    "estimated_time_ms": 200.72
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 80,
+    "estimated_time_ms": 256.81
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 125,
+    "estimated_time_ms": 329.07
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 250,
+    "estimated_time_ms": 531.32
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 300,
+    "estimated_time_ms": 612.22
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 33.73
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 43.99
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 1,
+    "estimated_time_ms": 72.2
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 420.53
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 5,
+    "estimated_time_ms": 448.97
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 10,
+    "estimated_time_ms": 485.24
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 19.79
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 11.61
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 1,
+    "estimated_time_ms": 12.15
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 13.74
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 5,
+    "estimated_time_ms": 16.34
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 10,
+    "estimated_time_ms": 21.54
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 20,
+    "estimated_time_ms": 32.09
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 45,
+    "estimated_time_ms": 58.53
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 80,
+    "estimated_time_ms": 95.55
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 125,
+    "estimated_time_ms": 143.15
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 250,
+    "estimated_time_ms": 275.36
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 300,
+    "estimated_time_ms": 328.24
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 500,
+    "estimated_time_ms": 539.78
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 1000,
+    "estimated_time_ms": 1068.63
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 2000,
+    "estimated_time_ms": 2126.33
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 29.61
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 21.81
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 1,
+    "estimated_time_ms": 22.88
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 26.07
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 5,
+    "estimated_time_ms": 31.27
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 10,
+    "estimated_time_ms": 41.66
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 20,
+    "estimated_time_ms": 62.76
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 45,
+    "estimated_time_ms": 115.65
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 80,
+    "estimated_time_ms": 189.69
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 125,
+    "estimated_time_ms": 284.88
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 250,
+    "estimated_time_ms": 549.3
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 300,
+    "estimated_time_ms": 655.07
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 500,
+    "estimated_time_ms": 1078.15
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 1000,
+    "estimated_time_ms": 2135.85
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 38.69
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 39.36
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 1,
+    "estimated_time_ms": 41.49
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 47.88
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 5,
+    "estimated_time_ms": 58.28
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 10,
+    "estimated_time_ms": 79.06
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 20,
+    "estimated_time_ms": 121.26
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 45,
+    "estimated_time_ms": 227.03
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 80,
+    "estimated_time_ms": 375.11
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 125,
+    "estimated_time_ms": 565.49
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 250,
+    "estimated_time_ms": 1094.34
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 300,
+    "estimated_time_ms": 1305.88
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 500,
+    "estimated_time_ms": 2152.04
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 1000,
+    "estimated_time_ms": 4267.43
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 2000,
+    "estimated_time_ms": 8498.22
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 75.37
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 131.71
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 1,
+    "estimated_time_ms": 140.27
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 165.82
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 5,
+    "estimated_time_ms": 207.4
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 10,
+    "estimated_time_ms": 290.54
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 20,
+    "estimated_time_ms": 459.33
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 45,
+    "estimated_time_ms": 882.41
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 80,
+    "estimated_time_ms": 1474.72
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 125,
+    "estimated_time_ms": 2236.26
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 250,
+    "estimated_time_ms": 4351.65
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 300,
+    "estimated_time_ms": 5197.81
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 1536,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 148.16
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 1536,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 442.63
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 1536,
+    "volume_ul": 1,
+    "estimated_time_ms": 476.86
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 1536,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 579.09
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 1536,
+    "volume_ul": 5,
+    "estimated_time_ms": 745.37
+  },
+  {
+    "valve_diameter_mm": 0.1,
+    "pressure_bar": 0.15,
+    "well_count": 1536,
+    "volume_ul": 10,
+    "estimated_time_ms": 1077.95
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 7.57
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 12.73
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 1,
+    "estimated_time_ms": 21.95
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 11.42
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 5,
+    "estimated_time_ms": 11.77
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 10,
+    "estimated_time_ms": 12.43
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 20,
+    "estimated_time_ms": 13.73
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 45,
+    "estimated_time_ms": 16.89
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 80,
+    "estimated_time_ms": 21.32
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 125,
+    "estimated_time_ms": 27.03
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 250,
+    "estimated_time_ms": 42.89
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 300,
+    "estimated_time_ms": 49.24
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 500,
+    "estimated_time_ms": 74.61
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 1000,
+    "estimated_time_ms": 138.06
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 2000,
+    "estimated_time_ms": 264.95
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 10.37
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 18.51
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 1,
+    "estimated_time_ms": 33.0
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 21.43
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 5,
+    "estimated_time_ms": 22.13
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 10,
+    "estimated_time_ms": 23.44
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 20,
+    "estimated_time_ms": 26.04
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 45,
+    "estimated_time_ms": 32.37
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 80,
+    "estimated_time_ms": 41.23
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 125,
+    "estimated_time_ms": 52.65
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 250,
+    "estimated_time_ms": 84.37
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 300,
+    "estimated_time_ms": 97.06
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 500,
+    "estimated_time_ms": 147.81
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 1000,
+    "estimated_time_ms": 274.7
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 11.84
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 23.24
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 1,
+    "estimated_time_ms": 43.41
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 38.59
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 5,
+    "estimated_time_ms": 40.0
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 10,
+    "estimated_time_ms": 42.61
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 20,
+    "estimated_time_ms": 47.81
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 45,
+    "estimated_time_ms": 60.48
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 80,
+    "estimated_time_ms": 78.2
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 125,
+    "estimated_time_ms": 101.03
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 250,
+    "estimated_time_ms": 164.48
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 300,
+    "estimated_time_ms": 189.85
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 500,
+    "estimated_time_ms": 291.37
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 1000,
+    "estimated_time_ms": 545.15
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 2000,
+    "estimated_time_ms": 1052.71
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 19.32
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 43.16
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 1,
+    "estimated_time_ms": 85.19
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 128.63
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 5,
+    "estimated_time_ms": 134.27
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 10,
+    "estimated_time_ms": 144.73
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 20,
+    "estimated_time_ms": 165.53
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 45,
+    "estimated_time_ms": 216.19
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 80,
+    "estimated_time_ms": 287.1
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 125,
+    "estimated_time_ms": 378.41
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 250,
+    "estimated_time_ms": 632.19
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 300,
+    "estimated_time_ms": 733.7
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 33.74
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 82.47
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 1,
+    "estimated_time_ms": 168.2
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 430.33
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 5,
+    "estimated_time_ms": 452.88
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 10,
+    "estimated_time_ms": 494.72
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 7.94
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 17.21
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 1,
+    "estimated_time_ms": 11.24
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 11.46
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 5,
+    "estimated_time_ms": 11.83
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 10,
+    "estimated_time_ms": 12.56
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 20,
+    "estimated_time_ms": 14.03
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 45,
+    "estimated_time_ms": 17.7
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 80,
+    "estimated_time_ms": 22.85
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 125,
+    "estimated_time_ms": 29.48
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 250,
+    "estimated_time_ms": 47.92
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 300,
+    "estimated_time_ms": 55.3
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 500,
+    "estimated_time_ms": 84.81
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 1000,
+    "estimated_time_ms": 158.57
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 24,
+    "volume_ul": 2000,
+    "estimated_time_ms": 306.09
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 10.96
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 25.56
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 1,
+    "estimated_time_ms": 21.07
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 21.52
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 5,
+    "estimated_time_ms": 22.25
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 10,
+    "estimated_time_ms": 23.71
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 20,
+    "estimated_time_ms": 26.65
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 45,
+    "estimated_time_ms": 33.99
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 80,
+    "estimated_time_ms": 44.28
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 125,
+    "estimated_time_ms": 57.55
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 250,
+    "estimated_time_ms": 94.44
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 300,
+    "estimated_time_ms": 109.19
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 500,
+    "estimated_time_ms": 168.2
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 48,
+    "volume_ul": 1000,
+    "estimated_time_ms": 315.72
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 12.68
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 33.05
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 1,
+    "estimated_time_ms": 37.89
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 38.77
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 5,
+    "estimated_time_ms": 40.23
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 10,
+    "estimated_time_ms": 43.16
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 20,
+    "estimated_time_ms": 49.03
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 45,
+    "estimated_time_ms": 63.72
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 80,
+    "estimated_time_ms": 84.29
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 125,
+    "estimated_time_ms": 110.84
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 250,
+    "estimated_time_ms": 184.6
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 300,
+    "estimated_time_ms": 214.11
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 500,
+    "estimated_time_ms": 332.13
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 1000,
+    "estimated_time_ms": 627.18
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 96,
+    "volume_ul": 2000,
+    "estimated_time_ms": 1217.28
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 21.11
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 63.61
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 1,
+    "estimated_time_ms": 125.83
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 129.35
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 5,
+    "estimated_time_ms": 135.22
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 10,
+    "estimated_time_ms": 146.94
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 20,
+    "estimated_time_ms": 170.41
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 45,
+    "estimated_time_ms": 229.18
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 80,
+    "estimated_time_ms": 311.45
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 125,
+    "estimated_time_ms": 417.65
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 250,
+    "estimated_time_ms": 712.71
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 384,
+    "volume_ul": 300,
+    "estimated_time_ms": 830.73
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 1536,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 37.42
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 1536,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 124.18
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 1536,
+    "volume_ul": 1,
+    "estimated_time_ms": 419.11
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 1536,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 433.21
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 1536,
+    "volume_ul": 5,
+    "estimated_time_ms": 456.69
+  },
+  {
+    "valve_diameter_mm": 0.2,
+    "pressure_bar": 0.15,
+    "well_count": 1536,
+    "volume_ul": 10,
+    "estimated_time_ms": 503.58
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 7.56
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 8.16
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 1,
+    "estimated_time_ms": 10.02
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 11.27
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 5,
+    "estimated_time_ms": 11.62
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 10,
+    "estimated_time_ms": 12.04
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 20,
+    "estimated_time_ms": 12.86
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 45,
+    "estimated_time_ms": 14.87
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 80,
+    "estimated_time_ms": 17.64
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 125,
+    "estimated_time_ms": 21.2
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 250,
+    "estimated_time_ms": 31.08
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 300,
+    "estimated_time_ms": 35.03
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 500,
+    "estimated_time_ms": 50.84
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 1000,
+    "estimated_time_ms": 90.37
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 2000,
+    "estimated_time_ms": 169.42
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 10.37
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 11.31
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 1,
+    "estimated_time_ms": 14.26
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 21.13
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 5,
+    "estimated_time_ms": 21.84
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 10,
+    "estimated_time_ms": 22.66
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 20,
+    "estimated_time_ms": 24.31
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 45,
+    "estimated_time_ms": 28.32
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 80,
+    "estimated_time_ms": 33.86
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 125,
+    "estimated_time_ms": 40.98
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 250,
+    "estimated_time_ms": 60.75
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 300,
+    "estimated_time_ms": 68.66
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 500,
+    "estimated_time_ms": 100.28
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 1000,
+    "estimated_time_ms": 179.33
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 11.84
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 13.18
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 1,
+    "estimated_time_ms": 17.31
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 37.99
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 5,
+    "estimated_time_ms": 39.41
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 10,
+    "estimated_time_ms": 41.06
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 20,
+    "estimated_time_ms": 44.36
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 45,
+    "estimated_time_ms": 52.37
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 80,
+    "estimated_time_ms": 63.45
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 125,
+    "estimated_time_ms": 77.7
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 250,
+    "estimated_time_ms": 117.24
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 300,
+    "estimated_time_ms": 133.05
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 500,
+    "estimated_time_ms": 196.29
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 1000,
+    "estimated_time_ms": 354.39
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 2000,
+    "estimated_time_ms": 670.6
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 19.31
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 22.15
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 1,
+    "estimated_time_ms": 30.79
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 126.23
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 5,
+    "estimated_time_ms": 131.91
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 10,
+    "estimated_time_ms": 138.51
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 20,
+    "estimated_time_ms": 151.71
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 45,
+    "estimated_time_ms": 183.78
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 80,
+    "estimated_time_ms": 228.1
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 125,
+    "estimated_time_ms": 285.09
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 250,
+    "estimated_time_ms": 443.23
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 300,
+    "estimated_time_ms": 506.47
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 33.73
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 39.55
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 1,
+    "estimated_time_ms": 57.22
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 420.73
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 5,
+    "estimated_time_ms": 443.44
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 10,
+    "estimated_time_ms": 469.83
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 7.56
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 7.62
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 1,
+    "estimated_time_ms": 9.74
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 11.34
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 5,
+    "estimated_time_ms": 11.56
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 10,
+    "estimated_time_ms": 11.87
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 20,
+    "estimated_time_ms": 12.48
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 45,
+    "estimated_time_ms": 13.99
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 80,
+    "estimated_time_ms": 16.06
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 125,
+    "estimated_time_ms": 18.73
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 250,
+    "estimated_time_ms": 26.15
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 300,
+    "estimated_time_ms": 29.12
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 500,
+    "estimated_time_ms": 40.99
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 1000,
+    "estimated_time_ms": 70.67
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 2000,
+    "estimated_time_ms": 130.02
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 10.36
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 10.45
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 1,
+    "estimated_time_ms": 13.81
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 21.27
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 5,
+    "estimated_time_ms": 21.71
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 10,
+    "estimated_time_ms": 22.32
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 20,
+    "estimated_time_ms": 23.54
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 45,
+    "estimated_time_ms": 26.56
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 80,
+    "estimated_time_ms": 30.71
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 125,
+    "estimated_time_ms": 36.06
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 250,
+    "estimated_time_ms": 50.89
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 300,
+    "estimated_time_ms": 56.83
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 500,
+    "estimated_time_ms": 80.57
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 1000,
+    "estimated_time_ms": 139.92
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 11.84
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 11.96
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 1,
+    "estimated_time_ms": 16.68
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 38.27
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 5,
+    "estimated_time_ms": 39.15
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 10,
+    "estimated_time_ms": 40.38
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 20,
+    "estimated_time_ms": 42.82
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 45,
+    "estimated_time_ms": 48.85
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 80,
+    "estimated_time_ms": 57.16
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 125,
+    "estimated_time_ms": 67.85
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 250,
+    "estimated_time_ms": 97.52
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 300,
+    "estimated_time_ms": 109.39
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 500,
+    "estimated_time_ms": 156.87
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 1000,
+    "estimated_time_ms": 275.57
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 2000,
+    "estimated_time_ms": 512.98
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 19.31
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 19.57
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 1,
+    "estimated_time_ms": 29.49
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 127.38
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 5,
+    "estimated_time_ms": 130.9
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 10,
+    "estimated_time_ms": 135.82
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 20,
+    "estimated_time_ms": 145.56
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 45,
+    "estimated_time_ms": 169.71
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 80,
+    "estimated_time_ms": 202.94
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 125,
+    "estimated_time_ms": 245.68
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 250,
+    "estimated_time_ms": 364.38
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 300,
+    "estimated_time_ms": 411.86
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 33.73
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 34.27
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 1,
+    "estimated_time_ms": 54.57
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 425.32
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 5,
+    "estimated_time_ms": 439.38
+  },
+  {
+    "valve_diameter_mm": 0.6,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 10,
+    "estimated_time_ms": 459.09
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 7.56
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 9.02
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 1,
+    "estimated_time_ms": 14.08
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 11.38
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 5,
+    "estimated_time_ms": 11.72
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 10,
+    "estimated_time_ms": 12.22
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 20,
+    "estimated_time_ms": 13.23
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 45,
+    "estimated_time_ms": 15.62
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 80,
+    "estimated_time_ms": 18.95
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 125,
+    "estimated_time_ms": 23.24
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 250,
+    "estimated_time_ms": 35.14
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 300,
+    "estimated_time_ms": 39.9
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 500,
+    "estimated_time_ms": 58.94
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 1000,
+    "estimated_time_ms": 106.54
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 24,
+    "volume_ul": 2000,
+    "estimated_time_ms": 201.74
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 10.36
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 12.68
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 1,
+    "estimated_time_ms": 20.64
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 21.35
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 5,
+    "estimated_time_ms": 22.02
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 10,
+    "estimated_time_ms": 23.03
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 20,
+    "estimated_time_ms": 25.04
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 45,
+    "estimated_time_ms": 29.83
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 80,
+    "estimated_time_ms": 36.49
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 125,
+    "estimated_time_ms": 45.06
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 250,
+    "estimated_time_ms": 68.86
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 300,
+    "estimated_time_ms": 78.38
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 500,
+    "estimated_time_ms": 116.46
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 48,
+    "volume_ul": 1000,
+    "estimated_time_ms": 211.66
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 11.84
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 15.1
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 1,
+    "estimated_time_ms": 26.2
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 38.44
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 5,
+    "estimated_time_ms": 39.78
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 10,
+    "estimated_time_ms": 41.8
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 20,
+    "estimated_time_ms": 45.82
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 45,
+    "estimated_time_ms": 55.4
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 80,
+    "estimated_time_ms": 68.72
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 125,
+    "estimated_time_ms": 85.85
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 250,
+    "estimated_time_ms": 133.45
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 300,
+    "estimated_time_ms": 152.49
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 500,
+    "estimated_time_ms": 228.65
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 1000,
+    "estimated_time_ms": 419.05
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 96,
+    "volume_ul": 2000,
+    "estimated_time_ms": 799.85
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 19.31
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 26.18
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 1,
+    "estimated_time_ms": 49.35
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 128.05
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 5,
+    "estimated_time_ms": 133.42
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 10,
+    "estimated_time_ms": 141.47
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 20,
+    "estimated_time_ms": 157.57
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 45,
+    "estimated_time_ms": 195.87
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 80,
+    "estimated_time_ms": 249.17
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 125,
+    "estimated_time_ms": 317.7
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 250,
+    "estimated_time_ms": 508.1
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 384,
+    "volume_ul": 300,
+    "estimated_time_ms": 584.25
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 33.73
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 47.81
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 1,
+    "estimated_time_ms": 95.1
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 427.98
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 5,
+    "estimated_time_ms": 449.48
+  },
+  {
+    "valve_diameter_mm": 0.3,
+    "pressure_bar": 0.3,
+    "well_count": 1536,
+    "volume_ul": 10,
+    "estimated_time_ms": 481.68
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 7.56
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 7.95
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 1,
+    "estimated_time_ms": 9.9
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 11.29
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 5,
+    "estimated_time_ms": 11.55
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 10,
+    "estimated_time_ms": 11.88
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 20,
+    "estimated_time_ms": 12.52
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 45,
+    "estimated_time_ms": 14.07
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 80,
+    "estimated_time_ms": 16.2
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 125,
+    "estimated_time_ms": 18.92
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 250,
+    "estimated_time_ms": 26.5
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 300,
+    "estimated_time_ms": 29.54
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 500,
+    "estimated_time_ms": 41.68
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 1000,
+    "estimated_time_ms": 72.05
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 24,
+    "volume_ul": 2000,
+    "estimated_time_ms": 132.78
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 10.37
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 10.98
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 1,
+    "estimated_time_ms": 14.07
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 21.16
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 5,
+    "estimated_time_ms": 21.69
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 10,
+    "estimated_time_ms": 22.34
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 20,
+    "estimated_time_ms": 23.61
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 45,
+    "estimated_time_ms": 26.74
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 80,
+    "estimated_time_ms": 30.98
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 125,
+    "estimated_time_ms": 36.42
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 250,
+    "estimated_time_ms": 51.58
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 300,
+    "estimated_time_ms": 57.66
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 500,
+    "estimated_time_ms": 81.95
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 48,
+    "volume_ul": 1000,
+    "estimated_time_ms": 142.69
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 11.84
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 12.71
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 1,
+    "estimated_time_ms": 17.05
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 38.06
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 5,
+    "estimated_time_ms": 39.12
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 10,
+    "estimated_time_ms": 40.42
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 20,
+    "estimated_time_ms": 42.97
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 45,
+    "estimated_time_ms": 49.21
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 80,
+    "estimated_time_ms": 57.69
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 125,
+    "estimated_time_ms": 68.59
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 250,
+    "estimated_time_ms": 98.9
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 300,
+    "estimated_time_ms": 111.05
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 500,
+    "estimated_time_ms": 159.64
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 1000,
+    "estimated_time_ms": 281.11
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 96,
+    "volume_ul": 2000,
+    "estimated_time_ms": 524.05
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 19.31
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 21.16
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 1,
+    "estimated_time_ms": 30.25
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 126.54
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 5,
+    "estimated_time_ms": 130.77
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 10,
+    "estimated_time_ms": 135.97
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 20,
+    "estimated_time_ms": 146.15
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 45,
+    "estimated_time_ms": 171.12
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 80,
+    "estimated_time_ms": 205.03
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 125,
+    "estimated_time_ms": 248.63
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 250,
+    "estimated_time_ms": 369.9
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 384,
+    "volume_ul": 300,
+    "estimated_time_ms": 418.49
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 0.1,
+    "estimated_time_ms": 33.73
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 0.5,
+    "estimated_time_ms": 37.53
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 1,
+    "estimated_time_ms": 56.11
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 2.5,
+    "estimated_time_ms": 421.96
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 5,
+    "estimated_time_ms": 438.88
+  },
+  {
+    "valve_diameter_mm": 0.45,
+    "pressure_bar": 0.5,
+    "well_count": 1536,
+    "volume_ul": 10,
+    "estimated_time_ms": 459.69
+  }
+]
