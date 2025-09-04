@@ -1,26 +1,30 @@
-# dispenselib/D2Controller.py
+# stdlib
+import logging
 import signal
 import sys
-import time
 import threading
+import time
 from enum import Enum
-from typing import List, Any, Optional
-import logging
+from types import FrameType, TracebackType
+from typing import Any, List, Optional, Type
 
-# --- Local Imports ---
-from dispenselib.protocol import protocol_handler
-from dispenselib.utils import dlls
-from dispenselib.config import BAUDRATE, DISPENSE_TIMEOUT_BUFFER_S
+# third-party
 from UKRobotics.D2.DispenseLib.Calibration import ActiveCalibrationData
 
-logging.basicConfig(level=logging.WARNING, format='%(asctime)s - %(levelname)s - %(message)s')
+# local
+from dispenselib.config import BAUDRATE, DISPENSE_TIMEOUT_BUFFER_S
+from dispenselib.protocol import protocol_handler
+from dispenselib.utils import dlls
+
 log = logging.getLogger(__name__)
+
 
 class DispenseState(Enum):
     """Represents the state of a dispense operation."""
-    Error = -1
-    Ended = 1
-    Running = 0
+    ERROR = -1
+    ENDED = 1
+    RUNNING = 0
+
 
 class D2Controller:
     """
@@ -41,7 +45,7 @@ class D2Controller:
         """
         return list(dlls.SerialPort.GetPortNames())
 
-    def _signal_handler(self, sig, frame):
+    def _signal_handler(self, _sig: int, _frame: Optional[FrameType]) -> None:
         """
         Custom handler for Ctrl+C. Actively aborts any running command.
         """
@@ -55,7 +59,13 @@ class D2Controller:
         self.dispose()
         sys.exit(0)
 
-    def _execute_local_dispense(self, protocol: Any, plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None):
+    def _ms_to_s(self, milliseconds: float) -> float:
+        """
+        Converts milliseconds to seconds.
+        """
+        return milliseconds / 1000
+
+    def _execute_local_dispense(self, protocol: Any, plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None) -> tuple[float, float]:
         actual_duration_s = 0.0
         estimated_duration_ms = 0.0
         try:
@@ -86,14 +96,19 @@ class D2Controller:
             response.GetParameter(0, estimated_duration_ms)
 
             start_time = time.time()
-            self.wait_for_dispense_complete(int(estimated_duration_ms / 1000) + DISPENSE_TIMEOUT_BUFFER_S)
+            self.wait_for_dispense_complete(int(self._ms_to_s(estimated_duration_ms)) + DISPENSE_TIMEOUT_BUFFER_S)
             actual_duration_s = time.time() - start_time
         finally:
             log.info("Dispense finished. Cleaning up...")
-            try: self._controller.DisableAllMotors()
-            except Exception as e: log.error(f"Error disabling motors: {e}")
-            try: self.set_clamp(False)
-            except Exception as e: log.error(f"Error releasing clamp: {e}")
+            try:
+                self._controller.DisableAllMotors()
+            except Exception as e:
+                log.error(f"Error disabling motors: {e}")
+
+            try:
+                self.set_clamp(False)
+            except Exception as e:
+                log.error(f"Error releasing clamp: {e}")
         
         return estimated_duration_ms, actual_duration_s
 
@@ -107,17 +122,16 @@ class D2Controller:
                 exception_holder.append(e)
         self._dispense_thread = threading.Thread(target=worker)
         self._dispense_thread.start()
-        while self._dispense_thread.is_alive():
-            self._dispense_thread.join()
+        self._dispense_thread.join()
         if exception_holder:
             raise exception_holder[0]
         return result_holder[0] if result_holder else None
 
-    def open_comms(self, com_port: str, baud: int = BAUDRATE):
+    def open_comms(self, com_port: str, baud: int = BAUDRATE) -> None:
         self._controller.OpenComms(com_port, baud)
         log.info(f"Successfully connected to D2 on {com_port}.")
 
-    def dispose(self):
+    def dispose(self) -> None:
         if self._controller:
             self._controller.Dispose()
             log.info("Connection to D2 closed.")
@@ -125,10 +139,15 @@ class D2Controller:
     def __enter__(self) -> "D2Controller":
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
+    def __exit__(
+        self,
+        exc_type: Optional[Type[BaseException]],
+        exc_val: Optional[BaseException],
+        exc_tb: Optional[TracebackType],
+    ) -> None:
         self.dispose()
 
-    def run_dispense_from_id(self, protocol_id: str, plate_type_guid: str):
+    def run_dispense_from_id(self, protocol_id: str, plate_type_guid: str) -> None:
         log.info(f"Running dispense for protocol ID: {protocol_id}")
         self._run_in_thread(self._controller.RunDispense, protocol_id, plate_type_guid)
         log.info("Dispense completed.")
@@ -144,12 +163,12 @@ class D2Controller:
     def read_serial_id(self) -> str:
         return self._controller.ReadSerialIDFromDevice()
 
-    def set_clamp(self, clamped: bool):
+    def set_clamp(self, clamped: bool) -> None:
         state = "Engaging" if clamped else "Releasing"
         log.info(f"{state} clamp...")
         self._controller.SetClamp(clamped)
 
-    def move_z_to_height(self, height_mm: float):
+    def move_z_to_height(self, height_mm: float) -> None:
         """
         Moves the Z-axis to a specified height using the original C# method.
         """
@@ -157,7 +176,7 @@ class D2Controller:
         target_distance = dlls.Distance(height_mm, dlls.DistanceUnitType.mm)
         self._controller.MoveZToDispenseHeight(target_distance)
 
-    def wait_for_dispense_complete(self, timeout_seconds: float):
+    def wait_for_dispense_complete(self, timeout_seconds: float) -> None:
         try:
             log.info(f"Waiting for dispense to complete (C# timeout activated)...")
             timeout_span = dlls.TimeSpan.FromSeconds(timeout_seconds)
@@ -166,7 +185,7 @@ class D2Controller:
         except Exception as e:
             raise RuntimeError(f"An error occurred while waiting for dispense to complete: {e}")
 
-    def abort(self):
+    def abort(self) -> None:
         if self._controller and self._controller.ControlConnection:
             command = f"ABORT,{self._controller.ControllerNumberArms},0"
             log.info(f"Sending raw command: {command}")
