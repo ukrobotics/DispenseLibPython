@@ -1,13 +1,14 @@
-# dispenselib/protocol/protocol_handler.py
 """
 Handles conversion between Python-native data structures and .NET ProtocolData objects,
 as well as importing and exporting protocols from/to CSV files.
 """
-from typing import List as PythonList, Dict, Any
+
+# stdlib
 import uuid
 from collections import defaultdict
+from typing import List as PythonList, Dict, Any
 
-# Import the centralized DLL loader from the parent package.
+# third-party
 from dispenselib.utils.dlls import ProtocolData, ProtocolWell, ProtocolCsvImporter, ProtocolCsvExporter, D2DataAccess, List
 from UKRobotics.Common.Maths import Volume, VolumeUnitType
 
@@ -18,7 +19,7 @@ def import_from_csv(file_path: str) -> 'ProtocolData':
     return ProtocolCsvImporter.Import(file_path)
 
 
-def export_to_csv(protocol_id: str, file_path: str):
+def export_to_csv(protocol_id: str, file_path: str) -> None:
     """
     Exports a protocol to a CSV file using the .NET exporter.
     """
