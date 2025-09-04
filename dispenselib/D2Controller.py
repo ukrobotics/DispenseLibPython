@@ -66,8 +66,7 @@ class D2Controller:
         """
         return milliseconds / 1000
 
-    def _execute_local_dispense(self, protocol: Any, plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None) -> tuple[float, float]:
-        actual_duration_s = 0.0
+    def _execute_local_dispense(self, protocol: Any, plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None) -> None:
         estimated_duration_ms = 0.0
         try:
             plate_type = dlls.D2DataAccess.GetPlateTypeData(plate_type_guid)
@@ -95,10 +94,8 @@ class D2Controller:
 
             response = self._controller.ControlConnection.SendMessage("DISPENSE", self._controller.ControllerNumberArms, 0)
             response.GetParameter(0, estimated_duration_ms)
-
-            start_time = time.time()
+            log.info(f"Estimated dispense duration: {self._ms_to_s(estimated_duration_ms):.2f} seconds")
             self.wait_for_dispense_complete(int(self._ms_to_s(estimated_duration_ms)) + DISPENSE_TIMEOUT_BUFFER_S)
-            actual_duration_s = time.time() - start_time
         finally:
             log.info("Dispense finished. Cleaning up...")
             try:
@@ -110,8 +107,6 @@ class D2Controller:
                 self.set_clamp(False)
             except Exception as e:
                 log.error(f"Error releasing clamp: {e}")
-        
-        return estimated_duration_ms, actual_duration_s
 
     def _run_in_thread(self, target_func, *args, **kwargs) -> Any:
         result_holder, exception_holder = [], []
@@ -157,9 +152,8 @@ class D2Controller:
         log.info(f"Importing protocol from {csv_file_path}...")
         protocol = protocol_handler.import_from_csv(csv_file_path)
         log.info(f"Running dispense from imported CSV protocol: {protocol.Name}")
-        result = self._run_in_thread(self._execute_local_dispense, protocol, plate_type_guid, calibration_data=calibration_data)
+        self._run_in_thread(self._execute_local_dispense, protocol, plate_type_guid, calibration_data=calibration_data)
         log.info("Dispense completed.")
-        return result
 
     def read_serial_id(self) -> str:
         return self._controller.ReadSerialIDFromDevice()
