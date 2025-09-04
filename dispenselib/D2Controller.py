@@ -8,13 +8,14 @@ from enum import Enum
 from types import FrameType, TracebackType
 from typing import Any, List, Optional, Type
 
-# third-party
-from UKRobotics.D2.DispenseLib.Calibration import ActiveCalibrationData
-
 # local
 from dispenselib.config import BAUDRATE, DISPENSE_TIMEOUT_BUFFER_S
 from dispenselib.protocol import protocol_handler
 from dispenselib.utils import dlls
+
+# third-party
+from UKRobotics.D2.DispenseLib.Calibration import ActiveCalibrationData
+
 
 log = logging.getLogger(__name__)
 
