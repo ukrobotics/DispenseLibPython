@@ -15,7 +15,7 @@ setuptools.setup(
     description="A Python wrapper for the UK Robotics D2 dispenser.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/UKRobotics/DispenseLibDotPy", # Replace with your project's URL
+    url="https://github.com/UKRobotics/DispenseLibDotPy",
     packages=setuptools.find_packages(),
     include_package_data=True, # This tells setuptools to look for MANIFEST.in
     classifiers=[
@@ -25,6 +25,6 @@ setuptools.setup(
         "Development Status :: 4 - Beta",
         "Topic :: System :: Hardware :: Hardware Drivers",
     ],
-    python_requires='>=3.11',
+    python_requires='>=3.7',
     install_requires=requirements,
 )
