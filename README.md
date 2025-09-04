@@ -5,7 +5,7 @@
 This library is intended to aid users and integrators to create their own software for UK Robotics' D2 dispenser. It is the Python counterpart of [DispenseLibDotNet](https://github.com/ukrobotics/DispenseLibDotNet).
 
 > [!WARNING]  
-> This library is only compatible with Windows
+> This library is only compatible with Windows!
 
 For general user documentation for the D2, see here: [D2 quick start docs](https://ukrobotics.tech/docs/d2dispenser/quick-start/)
 
