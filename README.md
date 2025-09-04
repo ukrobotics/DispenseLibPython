@@ -16,7 +16,7 @@ This codebase is currently in BETA - we welcome comments, feedback and collabora
 ## Requirements
 
 * **Operating System:** Windows (The underlying .NET libraries require the Windows environment).
-* **Python Version:** Python 3.11 or newer.
+* **Python Version:** Python 3.7 or newer.
 * **Hardware:** UK Robotics D2 Dispenser.
 * **Framework:** Microsoft .NET Framework 4.6.1 or later (typically pre-installed on modern Windows systems).
 
