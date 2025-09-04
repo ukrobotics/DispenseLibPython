@@ -4,12 +4,13 @@ import sys
 import time
 import threading
 from enum import Enum
-from typing import List, Dict, Any, Optional
+from typing import List, Any, Optional
 import logging
 
 # --- Local Imports ---
 from dispenselib.protocol import protocol_handler
 from dispenselib.utils import dlls
+from dispenselib.config import BAUDRATE, DISPENSE_TIMEOUT_BUFFER_S
 from UKRobotics.D2.DispenseLib.Calibration import ActiveCalibrationData
 
 logging.basicConfig(level=logging.WARNING, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -85,7 +86,7 @@ class D2Controller:
             response.GetParameter(0, estimated_duration_ms)
 
             start_time = time.time()
-            self.wait_for_dispense_complete(int(estimated_duration_ms / 1000) + 30)
+            self.wait_for_dispense_complete(int(estimated_duration_ms / 1000) + DISPENSE_TIMEOUT_BUFFER_S)
             actual_duration_s = time.time() - start_time
         finally:
             log.info("Dispense finished. Cleaning up...")
@@ -96,7 +97,7 @@ class D2Controller:
         
         return estimated_duration_ms, actual_duration_s
 
-    def _run_in_thread(self, target_func, *args, **kwargs):
+    def _run_in_thread(self, target_func, *args, **kwargs) -> Any:
         result_holder, exception_holder = [], []
         def worker():
             try:
@@ -107,12 +108,12 @@ class D2Controller:
         self._dispense_thread = threading.Thread(target=worker)
         self._dispense_thread.start()
         while self._dispense_thread.is_alive():
-            self._dispense_thread.join(timeout=0.1)
+            self._dispense_thread.join()
         if exception_holder:
             raise exception_holder[0]
         return result_holder[0] if result_holder else None
 
-    def open_comms(self, com_port: str, baud: int = 115200):
+    def open_comms(self, com_port: str, baud: int = BAUDRATE):
         self._controller.OpenComms(com_port, baud)
         log.info(f"Successfully connected to D2 on {com_port}.")
 
@@ -121,7 +122,7 @@ class D2Controller:
             self._controller.Dispose()
             log.info("Connection to D2 closed.")
 
-    def __enter__(self):
+    def __enter__(self) -> "D2Controller":
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -132,7 +133,7 @@ class D2Controller:
         self._run_in_thread(self._controller.RunDispense, protocol_id, plate_type_guid)
         log.info("Dispense completed.")
 
-    def run_dispense_from_csv(self, csv_file_path: str, plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None):
+    def run_dispense_from_csv(self, csv_file_path: str, plate_type_guid: str, calibration_data: Optional[ActiveCalibrationData] = None) -> Any:
         log.info(f"Importing protocol from {csv_file_path}...")
         protocol = protocol_handler.import_from_csv(csv_file_path)
         log.info(f"Running dispense from imported CSV protocol: {protocol.Name}")
