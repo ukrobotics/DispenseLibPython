@@ -1,4 +1,4 @@
-# DispenseLibDotPy
+# DispenseLibPython
 
 ## Intro
 
