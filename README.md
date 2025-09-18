@@ -29,7 +29,7 @@ Since this package is hosted on GitHub, you can install it directly using `pip` 
 Open your terminal or command prompt and run the following command.
 
 ```bash
-pip install git+https://github.com/UKRobotics/DispenseLibDotPy.git
+pip install git+https://github.com/UKRobotics/DispenseLibPython.git
 ```
 
 ## Usage
